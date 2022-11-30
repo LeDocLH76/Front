@@ -111,11 +111,20 @@ main {
    top: 100px;
 }
 
+.arrowLeft:hover {
+   transform: scale(1.4, 1.4);
+}
+
 .arrowRight {
    position: absolute;
    right: 20px;
    top: 100px;
 }
+
+.arrowRight:hover {
+   transform: scale(1.4, 1.4);
+}
+
 
 .windowSlider {
    width: 600px;
@@ -129,6 +138,7 @@ main {
    display: flex;
    flex-direction: row;
    border: 1px solid grey;
+
 }
 
 .containerImagesSlider img {
@@ -136,12 +146,10 @@ main {
    width: 150px;
 }
 
-
-/***************/
-/* Best movies */
-/***************/
-
-.sliderBestMovies {
+.sliderBestMovies,
+.sliderCategory1,
+.sliderCategory2,
+.sliderCategory3 {
    margin: 5px;
    border: 1px solid green;
    display: flex;
@@ -149,6 +157,11 @@ main {
    align-items: center;
 
 }
+
+/***************/
+/* Best movies */
+/***************/
+
 
 .categoryTitle {
    height: 50px;
