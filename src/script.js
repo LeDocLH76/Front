@@ -2,28 +2,29 @@ let positionSliderBestMovies = 0;
 let positionSliderCategory1 = 0;
 let positionSliderCategory2 = 0;
 let positionSliderCategory3 = 0;
-let positionslidersMax = 2;
+const positionslidersMax = 2;
 
-let elementSliderBestMovies = document.querySelector('section.sliderBestMovies');
-let elementAllContainerImagesSliderBestMovies = elementSliderBestMovies.querySelectorAll('img');
-let elementSliderCategory1 = document.querySelector('section.sliderCategory1');
-let elementAllContainerImagesSliderCategory1 = elementSliderCategory1.querySelectorAll('img');
-let elementSliderCategory2 = document.querySelector('section.sliderCategory2');
-let elementAllContainerImagesSliderCategory2 = elementSliderCategory2.querySelectorAll('img');
-let elementSliderCategory3 = document.querySelector('section.sliderCategory3');
-let elementAllContainerImagesSliderCategory3 = elementSliderCategory3.querySelectorAll('img');
+const elementSliderBestMovies = document.querySelector('section.sliderBestMovies');
+const elementAllContainerImagesSliderBestMovies = elementSliderBestMovies.querySelectorAll('img');
+const elementSliderCategory1 = document.querySelector('section.sliderCategory1');
+const elementAllContainerImagesSliderCategory1 = elementSliderCategory1.querySelectorAll('img');
+const elementSliderCategory2 = document.querySelector('section.sliderCategory2');
+const elementAllContainerImagesSliderCategory2 = elementSliderCategory2.querySelectorAll('img');
+const elementSliderCategory3 = document.querySelector('section.sliderCategory3');
+const elementAllContainerImagesSliderCategory3 = elementSliderCategory3.querySelectorAll('img');
+const elementModal = document.getElementById('modal1');
 
 for (let index = 0; index < elementAllContainerImagesSliderBestMovies.length; index++) {
-   elementAllContainerImagesSliderBestMovies[index].addEventListener('click', (e) => console.log(e['path'][0]['id']));
+   elementAllContainerImagesSliderBestMovies[index].addEventListener('click', (e) => openModal(e));
 }
 for (let index = 0; index < elementAllContainerImagesSliderCategory1.length; index++) {
-   elementAllContainerImagesSliderCategory1[index].addEventListener('click', (e) => console.log(e['path'][0]['id']));
+   elementAllContainerImagesSliderCategory1[index].addEventListener('click', (e) => openModal(e));
 }
 for (let index = 0; index < elementAllContainerImagesSliderCategory2.length; index++) {
-   elementAllContainerImagesSliderCategory2[index].addEventListener('click', (e) => console.log(e['path'][0]['id']));
+   elementAllContainerImagesSliderCategory2[index].addEventListener('click', (e) => openModal(e));
 }
 for (let index = 0; index < elementAllContainerImagesSliderCategory3.length; index++) {
-   elementAllContainerImagesSliderCategory3[index].addEventListener('click', (e) => console.log(e['path'][0]['id']));
+   elementAllContainerImagesSliderCategory3[index].addEventListener('click', (e) => openModal(e));
 }
 
 elementSliderBestMovies.querySelector('span.arrowLeft').addEventListener('click', (e) => onclickLeft(e));
@@ -113,4 +114,23 @@ function onclickLeft(e) {
          }
          break;
    }
+}
+
+function openModal(e) {
+   console.log(e['path'][0]['id']);
+   console.log(e);
+   id = e['path'][0]['id'].toString();
+   pagePositionY = e['pageY'];
+   clientPositionY = e['clientY'];
+   heightOfWindow = window.innerHeight;
+   modalePositionY = pagePositionY - clientPositionY + heightOfWindow / 2;
+   modalePositionYString = modalePositionY.toString() + 'px';
+   elementModal.style.top = modalePositionYString;
+   elementModal.querySelector('#modaleMovieId').innerHTML = id;
+   elementModal.showModal();
+   elementModal.querySelector('button').addEventListener('click', () => closeModale());
+}
+
+function closeModale() {
+   elementModal.close();
 }
