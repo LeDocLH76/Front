@@ -4,50 +4,34 @@ let positionSliderCategory2 = 0;
 let positionSliderCategory3 = 0;
 const positionslidersMax = 2;
 
-const elementSliderBestMovies = document.querySelector('section.sliderBestMovies');
-const elementAllContainerImagesSliderBestMovies = elementSliderBestMovies.querySelectorAll('img');
-const elementSliderCategory1 = document.querySelector('section.sliderCategory1');
-const elementAllContainerImagesSliderCategory1 = elementSliderCategory1.querySelectorAll('img');
-const elementSliderCategory2 = document.querySelector('section.sliderCategory2');
-const elementAllContainerImagesSliderCategory2 = elementSliderCategory2.querySelectorAll('img');
-const elementSliderCategory3 = document.querySelector('section.sliderCategory3');
-const elementAllContainerImagesSliderCategory3 = elementSliderCategory3.querySelectorAll('img');
-const elementModal = document.getElementById('modal1');
+const elementSliderBestMovies = document.querySelector('section#sliderBestMovies');
+const elementSliderCategory1 = document.querySelector('section#sliderCategory1');
+const elementSliderCategory2 = document.querySelector('section#sliderCategory2');
+const elementSliderCategory3 = document.querySelector('section#sliderCategory3');
 
-for (let index = 0; index < elementAllContainerImagesSliderBestMovies.length; index++) {
-   elementAllContainerImagesSliderBestMovies[index].addEventListener('click', (e) => openModal(e));
-}
-for (let index = 0; index < elementAllContainerImagesSliderCategory1.length; index++) {
-   elementAllContainerImagesSliderCategory1[index].addEventListener('click', (e) => openModal(e));
-}
-for (let index = 0; index < elementAllContainerImagesSliderCategory2.length; index++) {
-   elementAllContainerImagesSliderCategory2[index].addEventListener('click', (e) => openModal(e));
-}
-for (let index = 0; index < elementAllContainerImagesSliderCategory3.length; index++) {
-   elementAllContainerImagesSliderCategory3[index].addEventListener('click', (e) => openModal(e));
-}
-
-elementSliderBestMovies.querySelector('span.arrowLeft').addEventListener('click', (e) => onclickLeft(e));
-elementSliderBestMovies.querySelector('span.arrowRight').addEventListener('click', (e) => onclickRight(e));
-elementSliderCategory1.querySelector('span.arrowLeft').addEventListener('click', (e) => onclickLeft(e));
-elementSliderCategory1.querySelector('span.arrowRight').addEventListener('click', (e) => onclickRight(e));
-elementSliderCategory2.querySelector('span.arrowLeft').addEventListener('click', (e) => onclickLeft(e));
-elementSliderCategory2.querySelector('span.arrowRight').addEventListener('click', (e) => onclickRight(e));
-elementSliderCategory3.querySelector('span.arrowLeft').addEventListener('click', (e) => onclickLeft(e));
-elementSliderCategory3.querySelector('span.arrowRight').addEventListener('click', (e) => onclickRight(e));
+const elementsSliders = document.querySelectorAll('section.slider');
+console.log(elementsSliders);
+elementsSliders.forEach(function (node) {
+   node.querySelector('span.arrowLeft').addEventListener('click', (e) => onclickLeft(e));
+   node.querySelector('span.arrowRight').addEventListener('click', (e) => onclickRight(e));
+   elementPicture = node.querySelectorAll('img');
+   elementPicture.forEach(function (node) {
+      node.addEventListener('click', (e) => onClickPicture(e));
+   });
+});
 
 function onclickRight(e) {
-   console.log('Click gauche');
-   console.log(e);
-   slider = e['path'][2]['className'];
-   console.log(slider);
-   switch (slider) {
+   console.log('Click droit');
+   // console.log(e);
+   slider_id = e['path'][2]['id'];
+   // console.log(slider_id);
+   switch (slider_id) {
       case 'sliderBestMovies':
          if (positionSliderBestMovies <= positionslidersMax) {
             positionSliderBestMovies++;
             offset = positionSliderBestMovies * -150;
             transformString = 'translateX(' + offset.toString() + 'px)';
-            elementSliderBestMovies.querySelector('div.container0').style.transform = transformString;
+            elementSliderBestMovies.querySelector('div#container0').style.transform = transformString;
          }
          break;
       case 'sliderCategory1':
@@ -55,7 +39,7 @@ function onclickRight(e) {
             positionSliderCategory1++;
             offset = positionSliderCategory1 * -150;
             transformString = 'translateX(' + offset.toString() + 'px)';
-            elementSliderCategory1.querySelector('div.container1').style.transform = transformString;
+            elementSliderCategory1.querySelector('div#container1').style.transform = transformString;
          }
          break;
       case 'sliderCategory2':
@@ -63,7 +47,7 @@ function onclickRight(e) {
             positionSliderCategory2++;
             offset = positionSliderCategory2 * -150;
             transformString = 'translateX(' + offset.toString() + 'px)';
-            elementSliderCategory2.querySelector('div.container2').style.transform = transformString;
+            elementSliderCategory2.querySelector('div#container2').style.transform = transformString;
          }
          break;
       case 'sliderCategory3':
@@ -71,16 +55,16 @@ function onclickRight(e) {
             positionSliderCategory3++;
             offset = positionSliderCategory3 * -150;
             transformString = 'translateX(' + offset.toString() + 'px)';
-            elementSliderCategory3.querySelector('div.container3').style.transform = transformString;
+            elementSliderCategory3.querySelector('div#container3').style.transform = transformString;
          }
          break;
    }
 }
 
 function onclickLeft(e) {
-   console.log('Click droit');
-   slider = e['path'][2]['className'];
-   switch (slider) {
+   console.log('Click gauche');
+   slider_id = e['path'][2]['id'];
+   switch (slider_id) {
       case 'sliderBestMovies':
          if (positionSliderBestMovies > 0) {
             positionSliderBestMovies--;
@@ -116,21 +100,24 @@ function onclickLeft(e) {
    }
 }
 
-function openModal(e) {
+function onClickPicture(e) {
+   const elementModal = document.getElementById('modal1');
    console.log(e['path'][0]['id']);
-   console.log(e);
+   console.log(elementModal, e);
    id = e['path'][0]['id'].toString();
+   makeModal(e);
+   elementModal.querySelector('#modalMovieId').innerHTML = id;
+   elementModal.showModal();
+   elementModal.querySelector('button').addEventListener('click', function () {
+      elementModal.close();
+   });
+}
+
+function makeModal(elementModal, e) {
    pagePositionY = e['pageY'];
    clientPositionY = e['clientY'];
    heightOfWindow = window.innerHeight;
    modalePositionY = pagePositionY - clientPositionY + heightOfWindow / 2;
    modalePositionYString = modalePositionY.toString() + 'px';
    elementModal.style.top = modalePositionYString;
-   elementModal.querySelector('#modaleMovieId').innerHTML = id;
-   elementModal.showModal();
-   elementModal.querySelector('button').addEventListener('click', () => closeModale());
-}
-
-function closeModale() {
-   elementModal.close();
 }
