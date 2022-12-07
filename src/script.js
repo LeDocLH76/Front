@@ -10,7 +10,7 @@ const elementSliderCategory2 = document.querySelector('section#sliderCategory2')
 const elementSliderCategory3 = document.querySelector('section#sliderCategory3');
 
 const elementsSliders = document.querySelectorAll('section.slider');
-console.log(elementsSliders);
+// console.log(elementsSliders);
 elementsSliders.forEach(function (node) {
    node.querySelector('span.arrowLeft').addEventListener('click', (e) => onclickLeft(e));
    node.querySelector('span.arrowRight').addEventListener('click', (e) => onclickRight(e));
@@ -22,9 +22,9 @@ elementsSliders.forEach(function (node) {
 
 function onclickRight(e) {
    console.log('Click droit');
-   // console.log(e);
-   slider_id = e['path'][2]['id'];
-   // console.log(slider_id);
+   console.log(e);
+   slider_id = e.target.parentElement.parentElement.id;
+   console.log(slider_id);
    switch (slider_id) {
       case 'sliderBestMovies':
          if (positionSliderBestMovies <= positionslidersMax) {
@@ -63,7 +63,7 @@ function onclickRight(e) {
 
 function onclickLeft(e) {
    console.log('Click gauche');
-   slider_id = e['path'][2]['id'];
+   slider_id = e.target.parentElement.parentElement.id;
    switch (slider_id) {
       case 'sliderBestMovies':
          if (positionSliderBestMovies > 0) {
@@ -102,10 +102,8 @@ function onclickLeft(e) {
 
 function onClickPicture(e) {
    const elementModal = document.getElementById('modal1');
-   console.log(e['path'][0]['id']);
-   console.log(elementModal, e);
-   id = e['path'][0]['id'].toString();
-   makeModal(e);
+   id = e.target.parentElement.parentElement.id.toString();
+   makeModal(elementModal, e);
    elementModal.querySelector('#modalMovieId').innerHTML = id;
    elementModal.showModal();
    elementModal.querySelector('button').addEventListener('click', function () {
@@ -114,8 +112,8 @@ function onClickPicture(e) {
 }
 
 function makeModal(elementModal, e) {
-   pagePositionY = e['pageY'];
-   clientPositionY = e['clientY'];
+   pagePositionY = e.pageY;
+   clientPositionY = e.clientY;
    heightOfWindow = window.innerHeight;
    modalePositionY = pagePositionY - clientPositionY + heightOfWindow / 2;
    modalePositionYString = modalePositionY.toString() + 'px';
