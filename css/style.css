@@ -61,7 +61,7 @@ main {
 /* Best movie  */
 /***************/
 
-.bestMovie {
+#bestMovie {
    /* width: 100%; */
    margin: 5px;
    border: 1px solid red;
@@ -70,20 +70,20 @@ main {
 
 }
 
-.containerBestMovie {
+#containerBestMovie {
    width: 1000px;
    border: 1px solid grey;
    display: flex;
    justify-content: space-between;
 }
 
-.containerBestMovieText {
+#containerBestMovieText {
    display: flex;
    flex-direction: column;
    justify-content: space-evenly;
 }
 
-.BestMovieTitle {
+#BestMovieTitle {
    font-size: 20px;
    padding-left: 20px;
 

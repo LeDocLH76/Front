@@ -31,7 +31,7 @@ function onclickRight(e) {
             positionSliderBestMovies++;
             offset = positionSliderBestMovies * -150;
             transformString = 'translateX(' + offset.toString() + 'px)';
-            elementSliderBestMovies.querySelector('div#container0').style.transform = transformString;
+            elementSliderBestMovies.querySelector('div.containerImagesSlider').style.transform = transformString;
          }
          break;
       case 'sliderCategory1':
@@ -39,7 +39,7 @@ function onclickRight(e) {
             positionSliderCategory1++;
             offset = positionSliderCategory1 * -150;
             transformString = 'translateX(' + offset.toString() + 'px)';
-            elementSliderCategory1.querySelector('div#container1').style.transform = transformString;
+            elementSliderCategory1.querySelector('div.containerImagesSlider').style.transform = transformString;
          }
          break;
       case 'sliderCategory2':
@@ -47,7 +47,7 @@ function onclickRight(e) {
             positionSliderCategory2++;
             offset = positionSliderCategory2 * -150;
             transformString = 'translateX(' + offset.toString() + 'px)';
-            elementSliderCategory2.querySelector('div#container2').style.transform = transformString;
+            elementSliderCategory2.querySelector('div.containerImagesSlider').style.transform = transformString;
          }
          break;
       case 'sliderCategory3':
@@ -55,7 +55,7 @@ function onclickRight(e) {
             positionSliderCategory3++;
             offset = positionSliderCategory3 * -150;
             transformString = 'translateX(' + offset.toString() + 'px)';
-            elementSliderCategory3.querySelector('div#container3').style.transform = transformString;
+            elementSliderCategory3.querySelector('div.containerImagesSlider').style.transform = transformString;
          }
          break;
    }
