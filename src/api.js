@@ -1,6 +1,6 @@
 export async function getCategory(item_quantity) {
    let page_quantity = find_page_quantity(item_quantity);
-   console.log('nombre de page = ', page_quantity);
+   // console.log('nombre de page = ', page_quantity);
    const url = 'http://localhost:8000/api/v1/genres/';
    let page_txt = '';
    let data = [];
@@ -130,9 +130,9 @@ async function findData(url1, sort, filter, item_quantity) {
       // console.log(url1 + question_mark + filter + ampersand_1 + page_txt + ampersand_2 + sort);
       let page_data = await getData(url1 + question_mark + filter + ampersand_1 + page_txt + ampersand_2 + sort);
       data = data.concat(page_data.results);
-      console.log(data);
+      // console.log(data);
       const count = page_data.count;
-      console.log('count = ', count);
+      // console.log('count = ', count);
       const max_page = find_page_quantity(count);
       // console.log('max page = ', max_page);
       // console.log('page = ', page);

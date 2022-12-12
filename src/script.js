@@ -1,3 +1,7 @@
+import { main } from './index.js';
+
+await main();
+
 let HpositionSliderBestMovies = 0;
 let HpositionSliderCategory1 = 0;
 let HpositionSliderCategory2 = 0;
@@ -19,7 +23,7 @@ const elementContainerDescription = document.getElementById('containerDescriptio
 const elementBestMovieButton = document.getElementById('BestMovieButton');
 const elementBestMovieDescription = document.getElementById('BestMovieDescription');
 const elementBestMovieImage = document.getElementById('containerBestMovieImage');
-elementBestMovieButton.addEventListener('click', (e) => onClickButton(e));
+elementBestMovieButton.addEventListener('click', (e) => onClickMyButton(e));
 elementBestMovieImage.addEventListener('click', (e) => onClickPicture(e));
 
 const elementsSliders = document.querySelectorAll('section.slider');
@@ -31,13 +35,14 @@ const elementSliderCategory3 = document.querySelector('section#sliderCategory3')
 elementsSliders.forEach(function (node) {
    node.querySelector('span.arrowLeft').addEventListener('click', (e) => onclickLeft(e));
    node.querySelector('span.arrowRight').addEventListener('click', (e) => onclickRight(e));
-   elementPicture = node.querySelectorAll('img');
+   const elementPicture = node.querySelectorAll('img');
+   console.log(node);
    elementPicture.forEach(function (node) {
       node.addEventListener('click', (e) => onClickPicture(e));
    });
 });
 
-function onClickButton(e) {
+function onClickMyButton(e) {
    console.log('Click button', e);
    // console.log(elementBestMovieDescription.getAttribute('style'));
    if (elementBestMovieDescription.getAttribute('style') == 'display:none') {
@@ -74,23 +79,23 @@ function onclickRight(e) {
    } else {
       HpositionslidersMax = 2;
    }
-   slider_id = e.target.parentElement.parentElement.id;
+   const slider_id = e.target.parentElement.parentElement.id;
    switch (slider_id) {
       case 'sliderBestMovies':
          if (window.innerWidth <= MediaQueryForPhone) {
             // Phone
             if (VpositionSliderBestMovies <= VpositionslidersMax) {
                VpositionSliderBestMovies++;
-               offset = VpositionSliderBestMovies * -H_Image;
-               transformString = 'translateY(' + offset.toString() + 'px)';
+               const offset = VpositionSliderBestMovies * -H_Image;
+               const transformString = 'translateY(' + offset.toString() + 'px)';
                elementSliderBestMovies.querySelector('div.containerImagesSlider').style.transform = transformString;
             }
          } else {
             // Not Phone
             if (HpositionSliderBestMovies <= HpositionslidersMax) {
                HpositionSliderBestMovies++;
-               offset = HpositionSliderBestMovies * -L_Image;
-               transformString = 'translateX(' + offset.toString() + 'px)';
+               const offset = HpositionSliderBestMovies * -L_Image;
+               const transformString = 'translateX(' + offset.toString() + 'px)';
                elementSliderBestMovies.querySelector('div.containerImagesSlider').style.transform = transformString;
             }
          }
@@ -100,16 +105,16 @@ function onclickRight(e) {
             // Phone
             if (VpositionSliderCategory1 <= VpositionslidersMax) {
                VpositionSliderCategory1++;
-               offset = VpositionSliderCategory1 * -H_Image;
-               transformString = 'translateY(' + offset.toString() + 'px)';
+               const offset = VpositionSliderCategory1 * -H_Image;
+               const transformString = 'translateY(' + offset.toString() + 'px)';
                elementSliderCategory1.querySelector('div.containerImagesSlider').style.transform = transformString;
             }
          } else {
             // Not Phone
             if (HpositionSliderCategory1 <= HpositionslidersMax) {
                HpositionSliderCategory1++;
-               offset = HpositionSliderCategory1 * -L_Image;
-               transformString = 'translateX(' + offset.toString() + 'px)';
+               const offset = HpositionSliderCategory1 * -L_Image;
+               const transformString = 'translateX(' + offset.toString() + 'px)';
                elementSliderCategory1.querySelector('div.containerImagesSlider').style.transform = transformString;
             }
          }
@@ -119,16 +124,16 @@ function onclickRight(e) {
             // Phone
             if (VpositionSliderCategory2 <= VpositionslidersMax) {
                VpositionSliderCategory2++;
-               offset = VpositionSliderCategory2 * -H_Image;
-               transformString = 'translateY(' + offset.toString() + 'px)';
+               const offset = VpositionSliderCategory2 * -H_Image;
+               const transformString = 'translateY(' + offset.toString() + 'px)';
                elementSliderCategory2.querySelector('div.containerImagesSlider').style.transform = transformString;
             }
          } else {
             // Not Phone
             if (HpositionSliderCategory2 <= HpositionslidersMax) {
                HpositionSliderCategory2++;
-               offset = HpositionSliderCategory2 * -L_Image;
-               transformString = 'translateX(' + offset.toString() + 'px)';
+               const offset = HpositionSliderCategory2 * -L_Image;
+               const transformString = 'translateX(' + offset.toString() + 'px)';
                elementSliderCategory2.querySelector('div.containerImagesSlider').style.transform = transformString;
             }
          }
@@ -138,16 +143,16 @@ function onclickRight(e) {
             // Phone
             if (VpositionSliderCategory3 <= VpositionslidersMax) {
                VpositionSliderCategory3++;
-               offset = VpositionSliderCategory3 * -H_Image;
-               transformString = 'translateY(' + offset.toString() + 'px)';
+               const offset = VpositionSliderCategory3 * -H_Image;
+               const transformString = 'translateY(' + offset.toString() + 'px)';
                elementSliderCategory3.querySelector('div.containerImagesSlider').style.transform = transformString;
             }
          } else {
             // Not Phone
             if (HpositionSliderCategory3 <= HpositionslidersMax) {
                HpositionSliderCategory3++;
-               offset = HpositionSliderCategory3 * -L_Image;
-               transformString = 'translateX(' + offset.toString() + 'px)';
+               const offset = HpositionSliderCategory3 * -L_Image;
+               const transformString = 'translateX(' + offset.toString() + 'px)';
                elementSliderCategory3.querySelector('div.containerImagesSlider').style.transform = transformString;
             }
          }
@@ -175,23 +180,23 @@ function onclickLeft(e) {
    } else {
       HpositionslidersMax = 2;
    }
-   slider_id = e.target.parentElement.parentElement.id;
+   const slider_id = e.target.parentElement.parentElement.id;
    switch (slider_id) {
       case 'sliderBestMovies':
          if (window.innerWidth <= MediaQueryForPhone) {
             // Phone
             if (VpositionSliderBestMovies > 0) {
                VpositionSliderBestMovies--;
-               offset = VpositionSliderBestMovies * -H_Image;
-               transformString = 'translateY(' + offset.toString() + 'px)';
+               const offset = VpositionSliderBestMovies * -H_Image;
+               const transformString = 'translateY(' + offset.toString() + 'px)';
                elementSliderBestMovies.querySelector('div.containerImagesSlider').style.transform = transformString;
             }
          } else {
             // Not Phone
             if (HpositionSliderBestMovies > 0) {
                HpositionSliderBestMovies--;
-               offset = HpositionSliderBestMovies * -L_Image;
-               transformString = 'translateX(' + offset.toString() + 'px)';
+               const offset = HpositionSliderBestMovies * -L_Image;
+               const transformString = 'translateX(' + offset.toString() + 'px)';
                elementSliderBestMovies.querySelector('div.containerImagesSlider').style.transform = transformString;
             }
          }
@@ -201,16 +206,16 @@ function onclickLeft(e) {
             // Phone
             if (VpositionSliderCategory1 > 0) {
                VpositionSliderCategory1--;
-               offset = VpositionSliderCategory1 * -H_Image;
-               transformString = 'translateY(' + offset.toString() + 'px)';
+               const offset = VpositionSliderCategory1 * -H_Image;
+               const transformString = 'translateY(' + offset.toString() + 'px)';
                elementSliderCategory1.querySelector('div.containerImagesSlider').style.transform = transformString;
             }
          } else {
             // Not Phone
             if (HpositionSliderCategory1 > 0) {
                HpositionSliderCategory1--;
-               offset = HpositionSliderCategory1 * -L_Image;
-               transformString = 'translateX(' + offset.toString() + 'px)';
+               const offset = HpositionSliderCategory1 * -L_Image;
+               const transformString = 'translateX(' + offset.toString() + 'px)';
                elementSliderCategory1.querySelector('div.containerImagesSlider').style.transform = transformString;
             }
          }
@@ -220,16 +225,16 @@ function onclickLeft(e) {
             // Phone
             if (VpositionSliderCategory2 > 0) {
                VpositionSliderCategory2--;
-               offset = VpositionSliderCategory2 * -H_Image;
-               transformString = 'translateY(' + offset.toString() + 'px)';
+               const offset = VpositionSliderCategory2 * -H_Image;
+               const transformString = 'translateY(' + offset.toString() + 'px)';
                elementSliderCategory2.querySelector('div.containerImagesSlider').style.transform = transformString;
             }
          } else {
             // Not Phone
             if (HpositionSliderCategory2 > 0) {
                HpositionSliderCategory2--;
-               offset = HpositionSliderCategory2 * -L_Image;
-               transformString = 'translateX(' + offset.toString() + 'px)';
+               const offset = HpositionSliderCategory2 * -L_Image;
+               const transformString = 'translateX(' + offset.toString() + 'px)';
                elementSliderCategory2.querySelector('div.containerImagesSlider').style.transform = transformString;
             }
          }
@@ -239,16 +244,16 @@ function onclickLeft(e) {
             // Phone
             if (VpositionSliderCategory3 > 0) {
                VpositionSliderCategory3--;
-               offset = VpositionSliderCategory3 * -H_Image;
-               transformString = 'translateY(' + offset.toString() + 'px)';
+               const offset = VpositionSliderCategory3 * -H_Image;
+               const transformString = 'translateY(' + offset.toString() + 'px)';
                elementSliderCategory3.querySelector('div.containerImagesSlider').style.transform = transformString;
             }
          } else {
             // Not Phone
             if (HpositionSliderCategory3 > 0) {
                HpositionSliderCategory3--;
-               offset = HpositionSliderCategory3 * -L_Image;
-               transformString = 'translateX(' + offset.toString() + 'px)';
+               const offset = HpositionSliderCategory3 * -L_Image;
+               const transformString = 'translateX(' + offset.toString() + 'px)';
                elementSliderCategory3.querySelector('div.containerImagesSlider').style.transform = transformString;
             }
          }
@@ -258,7 +263,7 @@ function onclickLeft(e) {
 
 function onClickPicture(e) {
    const elementModal = document.getElementById('modal1');
-   id = e.target.dataset.id;
+   const id = e.target.dataset.id;
    console.log(e.target.dataset.id);
    const modalContent = `<div class="containerModal">
                <div class="containerModal0">

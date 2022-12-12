@@ -20,8 +20,6 @@ export function fill_title_sliders(category_1, category_2, category_3) {
       .querySelector('section#sliderCategory3')
       .querySelector('div.categoryTitle');
    elementSliderCategory3Title.innerHTML = `Categorie ${category_3}`;
-
-   console.log(elementSliderBestMoviesTitle);
 }
 
 export async function fill_best_movie_and_slider(best_movies_data) {
@@ -61,7 +59,7 @@ export async function fill_best_movie_and_slider(best_movies_data) {
 }
 
 export async function fill_category_slider(movies_data, index) {
-   console.log(movies_data, index);
+   // console.log(movies_data, index);
    let element_container_slider;
    switch (index) {
       case 0:
@@ -82,15 +80,15 @@ export async function fill_category_slider(movies_data, index) {
 }
 
 function fill_one_image_slider(movie, element_container_slider) {
-   console.log(movie);
+   // console.log(movie);
    const movie_id = movie.id;
    const movie_title = movie.title;
    const movie_image_url = movie.image_url;
    const element_image = document.createElement('img');
+   // console.log('element image = ', element_image);
    element_container_slider.appendChild(element_image);
    const current_child = element_container_slider.lastElementChild;
-   // console.log(current_child);
-   current_child.setAttribute('id', movie_id);
+   current_child.setAttribute('data-id', movie_id);
    current_child.setAttribute('alt', 'image du film ' + movie_title);
    current_child.setAttribute('src', movie_image_url);
 }
