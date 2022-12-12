@@ -63,6 +63,8 @@ main {
 
 #bestMovie {
    /* width: 100%; */
+   min-height: 250px;
+   max-height: 400px;
    margin: 5px;
    border: 1px solid red;
    display: flex;
@@ -71,26 +73,79 @@ main {
 }
 
 #containerBestMovie {
-   width: 1000px;
+   min-width: 700px;
+   max-width: 1000px;
    border: 1px solid grey;
    display: flex;
    justify-content: space-between;
 }
 
 #containerBestMovieText {
+   width: 70%;
    display: flex;
    flex-direction: column;
    justify-content: space-evenly;
+   border: 1px solid red;
 }
 
 #BestMovieTitle {
-   font-size: 20px;
+   display: flex;
+   width: 90%;
+   height: 50%;
+   overflow: hidden;
+   font-size: 26px;
    padding-left: 20px;
 
 }
 
-.bestMovie img {
-   width: 600px;
+#containerDescription {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   height: 50%;
+   font-size: 20px;
+}
+
+#containerBestMovieText button {
+   display: block;
+   width: fit-content;
+
+}
+
+#bestMovie img {
+   width: 200px;
+   height: 300px;
+   object-fit: contain;
+}
+
+@media (max-width: 720px) {
+   #bestMovie {
+      max-height: 600px;
+   }
+
+   #containerBestMovie {
+      flex-direction: column-reverse;
+      align-items: center;
+      min-width: 380px;
+      max-width: 510px;
+   }
+
+   #containerBestMovieText {
+      width: 95%;
+      align-items: center;
+      height: 50%;
+   }
+
+   #BestMovieTitle {
+      flex-direction: column;
+      align-items: center;
+   }
+}
+
+@media(max-width:600px) {
+   #BestMovieTitle {
+      font-size: 20px;
+   }
 }
 
 /***************/
@@ -107,8 +162,11 @@ main {
 
 .arrowLeft {
    position: absolute;
+   font-size: larger;
    left: 20px;
    top: 100px;
+   user-select: none;
+
 }
 
 .arrowLeft:hover {
@@ -117,8 +175,10 @@ main {
 
 .arrowRight {
    position: absolute;
+   font-size: larger;
    right: 20px;
    top: 100px;
+   user-select: none;
 }
 
 .arrowRight:hover {
@@ -127,6 +187,7 @@ main {
 
 .windowSlider {
    width: 600px;
+   height: 222px;
    border: 1px solid orange;
    overflow: hidden;
 
@@ -134,15 +195,18 @@ main {
 
 .containerImagesSlider {
    width: 1050px;
+   height: 222px;
    display: flex;
    flex-direction: row;
    border: 1px solid grey;
-
+   transition: .3s
 }
 
 .containerImagesSlider img {
    display: block;
    width: 150px;
+   height: 222px;
+   object-fit: contain;
 }
 
 .slider {
@@ -163,18 +227,73 @@ main {
 
 }
 
+@media (max-width: 720px) {
+   .windowSlider {
+      width: 450px;
+   }
+
+   .containerArrows {
+      width: 550px;
+   }
+}
+
+/* This media query must be adjust in relation with script.js */
+@media(max-width:600px) {
+   .windowSlider {
+      width: 300px;
+   }
+
+   .containerArrows {
+      width: 400px;
+   }
+
+   .containerImagesSlider {
+      width: 300px;
+      height: 892px;
+      flex-wrap: wrap;
+   }
+
+   .arrowLeft, .arrowRight {
+      transform: rotate(90deg);
+   }
+
+   .arrowLeft:hover {
+      transform: rotate(90deg) scale(1.4, 1.4);
+   }
+
+   .arrowRight:hover {
+
+      transform: rotate(90deg) scale(1.4, 1.4);
+
+   }
+
+
+
+}
+
 /***************/
 /* Modal      */
 /***************/
 
 .modal {
-   padding: 0;
-   position: absolute;
-   left: 0px;
-   width: 60%;
-   height: 60%;
+   position: fixed;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   left: 0;
+   width: 80%;
+   height: 80%;
+   overflow: auto;
+   border: none;
 }
 
+.containerModal {
+   box-sizing: border-box;
+   width: 100%;
+   height: 100%;
+   display: flex;
+   flex-direction: column;
+}
 
 #modalClose {
    position: absolute;
@@ -189,82 +308,242 @@ main {
    background-color: red;
    color: white;
    border: none;
-}
-
-.containerModal {
-   box-sizing: border-box;
-   position: relative;
-   width: 100%;
-   height: 100%;
-   border: 1px solid black;
-   display: flex;
-   flex-direction: column;
+   cursor: pointer;
+   transition: .3s;
 }
 
 .containerModal0 {
    width: 100%;
+   height: 50%;
    display: flex;
    justify-content: space-between;
 
 }
 
 .containerModal1 {
-   width: 50%;
-   display: flex;
-   flex-direction: column;
-}
-
-.containerModal1-1 {
+   width: 70%;
    display: flex;
    flex-direction: row;
    justify-content: space-between;
 }
 
-.containerModal1-2 {
-   width: 100%;
+.containerModal1-1 {
+   width: 70%;
    display: flex;
-   justify-content: center;
+   flex-direction: column;
+   justify-content: space-between;
+   text-align: center;
 }
 
+#modalTitle {
+   width: 100%;
+   height: 80%;
+   padding-top: 15px;
+   font-size: 24px;
+}
 
-#modalPicture {
-   width: 50%;
+#modalYear {
+   padding-top: 15px;
+   width: 100%;
+   height: 20%;
+   font-size: 20px;
+}
+
+.containerModal1-2 {
+   width: 30%;
+   height: 100%;
+   max-height: 300px;
+   /* display: flex;
+   justify-content: center; */
+}
+
+.modalPicture {
+   width: 100%;
+   height: 100%;
+   object-fit: contain;
 }
 
 .containerModal2 {
-   width: 50%;
+   width: 30%;
    display: flex;
    flex-direction: column;
+   text-align: center;
+   overflow: hidden;
 }
 
 .containerModal2-1 {
    display: flex;
-   flex-direction: row;
+   flex-direction: column;
    justify-content: space-around;
 }
 
+#modalGenres {
+   padding-top: 10px;
+}
+
+#modalDuration {
+   padding-top: 10px;
+}
+
+#modalRating {
+   padding-top: 10px;
+}
+
+#modalSynopsis {
+   padding-top: 10px;
+   font-size: 14px;
+}
+
 .containerModal3 {
+   width: 100%;
+   height: 50%;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   font-size: 18px;
+
+}
+
+.containerModal3-1 {
+   width: 50%;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-evenly;
+   text-align: center;
+}
+
+.containerModal3-2 {
+   width: 50%;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-evenly;
+   text-align: center;
+
+}
+
+#modalCountry {
+   width: 100%;
+
+}
+
+.containerModal3-2-1 {
    width: 100%;
    display: flex;
    flex-direction: row;
    justify-content: space-between;
 }
 
-.containerModal3-1 {
+#modalScore {
    width: 50%;
 }
 
-.containerModal3-2 {
+#modalResult {
    width: 50%;
 }
 
-.containerModal3-2-1 {
-   display: flex;
-   flex-direction: row;
-   justify-content: space-between;
+@media (max-width: 1200px) {
+   .modal {
+      width: 100%;
+      height: 100%;
+   }
 }
 
+@media(max-width: 1000px) {
+   .containerModal0 {
+      flex-direction: column;
+      height: auto;
+   }
 
+   .containerModal1 {
+      width: 100%;
+      height: auto;
+   }
+
+   .containerModal1-1 {
+      width: 80%;
+   }
+
+   .containerModal1-2 {
+      width: 20%;
+   }
+
+   .containerModal2 {
+      width: 100%;
+      height: auto;
+   }
+
+   .containerModal2-1 {
+      flex-direction: row;
+   }
+
+   .containerModal3 {
+      width: 100%;
+      flex-direction: column;
+      height: auto;
+   }
+
+   .containerModal3-1 {
+      width: 100%;
+   }
+
+   .containerModal3-2 {
+      width: 100%;
+   }
+
+
+
+}
+
+@media(max-width: 720px) {
+
+   .containerModal {
+      width: 100%;
+      height: auto;
+      overflow: scroll;
+   }
+
+   .containerModal1 {
+      width: 100%;
+      height: auto;
+      flex-direction: column-reverse;
+   }
+
+   .containerModal1-1 {
+      width: 100%;
+      height: auto;
+   }
+
+   .containerModal1-1-1 {
+      height: auto%;
+   }
+
+   .containerModal1-2 {
+      width: 100%;
+      height: auto;
+      max-height: initial;
+   }
+
+   .containerModal2 {
+      height: auto;
+   }
+
+   .containerModal2-1 {
+      flex-direction: column;
+   }
+
+   .containerModal3 {
+      flex-direction: column;
+      height: auto;
+   }
+
+   .containerModal3-1 {
+      width: 100%;
+   }
+
+   .containerModal3-2 {
+      width: 100%;
+   }
+}
 
 /***************/
 /* Footer      */
