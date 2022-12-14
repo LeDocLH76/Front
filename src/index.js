@@ -1,12 +1,12 @@
 import { getCategory, find_best_movie_data, find_stats_all_movie, getData } from './api.js';
-import { fill_title_sliders, fill_best_movie_and_slider, fill_category_slider } from './dom.js';
+// import { fill_title_sliders, fill_best_movie_and_slider, fill_category_slider } from './dom.js';
 
-// main();
+main();
 
-export async function main() {
-   // console.log('Avant');
+async function main() {
+   console.log('Avant');
    let category_array = await getCategory(25);
-   // console.log(category_array);
+   console.log(category_array);
    // for (let category of category_array) {
    //    let data = await find_best_movie_data(1, category);
    //    display_movie(data);
@@ -17,19 +17,19 @@ export async function main() {
    // display_movie(data);
    // find_stats_all_movie(3);
 
-   let best_movies_data = await find_best_movie_data(8);
-   await fill_best_movie_and_slider(best_movies_data);
+   // let best_movies_data = await find_best_movie_data(8);
+   // await fill_best_movie_and_slider(best_movies_data);
 
-   let category_1 = category_array[0];
-   let category_2 = category_array[1];
-   let category_3 = category_array[2];
-   fill_title_sliders(category_1, category_2, category_3);
+   // let category_1 = category_array[0];
+   // let category_2 = category_array[1];
+   // let category_3 = category_array[2];
+   // fill_title_sliders(category_1, category_2, category_3);
 
-   for (let index = 0; index < 3; index++) {
-      const category = category_array[index];
-      let movies_data = await find_best_movie_data(7, category);
-      await fill_category_slider(movies_data, index);
-   }
+   // for (let index = 0; index < 3; index++) {
+   //    const category = category_array[index];
+   //    let movies_data = await find_best_movie_data(7, category);
+   //    await fill_category_slider(movies_data, index);
+   // }
 
    // let categories = {};
    // const url1 = 'http://localhost:8000/api/v1/titles/?';

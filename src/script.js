@@ -1,46 +1,117 @@
-import { main } from './index.js';
+import { fill_dom, makeModal1 } from './dom.js';
 
-await main();
+await fill_dom();
 
 let HpositionSliderBestMovies = 0;
 let HpositionSliderCategory1 = 0;
 let HpositionSliderCategory2 = 0;
 let HpositionSliderCategory3 = 0;
 let HpositionslidersMax = 2;
-
 let VpositionSliderBestMovies = 0;
 let VpositionSliderCategory1 = 0;
 let VpositionSliderCategory2 = 0;
 let VpositionSliderCategory3 = 0;
 const VpositionslidersMax = 2;
-
 const L_Image = 150;
 const H_Image = 222;
 const MediaQueryForPhone = 600;
 const MediaQueryForTablet = 720;
-
 const elementContainerDescription = document.getElementById('containerDescription');
 const elementBestMovieButton = document.getElementById('BestMovieButton');
 const elementBestMovieDescription = document.getElementById('BestMovieDescription');
 const elementBestMovieImage = document.getElementById('containerBestMovieImage');
-elementBestMovieButton.addEventListener('click', (e) => onClickMyButton(e));
-elementBestMovieImage.addEventListener('click', (e) => onClickPicture(e));
-
 const elementsSliders = document.querySelectorAll('section.slider');
+const elementsContainerImageSlider = document.querySelectorAll('div.containerImagesSlider');
+const elementsContainernoFilm = document.querySelectorAll('div.containerNoFilm');
 const elementSliderBestMovies = document.querySelector('section#sliderBestMovies');
 const elementSliderCategory1 = document.querySelector('section#sliderCategory1');
 const elementSliderCategory2 = document.querySelector('section#sliderCategory2');
 const elementSliderCategory3 = document.querySelector('section#sliderCategory3');
+const elementArrowRightSliderBestMovies = elementSliderBestMovies.getElementsByClassName('arrowRight')[0];
+const elementArrowLeftSliderBestMovies = elementSliderBestMovies.getElementsByClassName('arrowLeft')[0];
+const elementArrowRightSliderCategory1 = elementSliderCategory1.getElementsByClassName('arrowRight')[0];
+const elementArrowLeftSliderCategory1 = elementSliderCategory1.getElementsByClassName('arrowLeft')[0];
+const elementArrowRightSliderCategory2 = elementSliderCategory2.getElementsByClassName('arrowRight')[0];
+const elementArrowLeftSliderCategory2 = elementSliderCategory2.getElementsByClassName('arrowLeft')[0];
+const elementArrowRightSliderCategory3 = elementSliderCategory3.getElementsByClassName('arrowRight')[0];
+const elementArrowLeftSliderCategory3 = elementSliderCategory3.getElementsByClassName('arrowLeft')[0];
+
+window.addEventListener('resize', (e) => {
+   if (e.currentTarget.innerWidth <= MediaQueryForPhone) {
+      // console.log('Téléphone', e.currentTarget.innerWidth);
+      // translateY = current
+      // translateX = 0
+      elementsContainerImageSlider.forEach(function (node) {
+         if (node.hasAttribute('style')) {
+            resetTranslateY(node);
+         }
+      });
+      elementsContainernoFilm.forEach(function (node) {
+         if (node.hasAttribute('style')) {
+            resetTranslateY(node);
+         }
+      });
+   } else {
+      // console.log('Pas téléphone', e.currentTarget.innerWidth);
+      // translateY = 0
+      // translateX = current
+      elementsContainerImageSlider.forEach(function (node) {
+         if (node.hasAttribute('style')) {
+            resetTranslateX(node);
+         }
+      });
+      elementsContainernoFilm.forEach(function (node) {
+         if (node.hasAttribute('style')) {
+            resetTranslateX(node);
+         }
+      });
+
+      if (window.innerWidth <= MediaQueryForPhone) {
+         // console.log('Téléphone');
+      } else {
+         // console.log('Pas téléphone');
+      }
+   }
+
+   function resetTranslateY(node) {
+      resetHpositionSliders();
+      resetDisplayArrowsH();
+      const styleStr = node.getAttribute('style');
+      const currentTranslate = styleStr.split('transform: translate(')[1].split(')')[0];
+      // console.log('currentTranslate', currentTranslate);
+      const currentTranslateY = currentTranslate.split(', ')[1];
+      // console.log('currentTranslateY', currentTranslateY);
+      node.style.transform = 'translate(0px, ' + currentTranslateY + ')';
+      // console.log(node.getAttribute('style'));
+   }
+
+   function resetTranslateX(node) {
+      resetVpositionSliders();
+      resetDisplayArrowsV();
+      const styleStr = node.getAttribute('style');
+      const currentTranslate = styleStr.split('transform: translate(')[1].split(')')[0];
+      // console.log('currentTranslate', currentTranslate);
+      const currentTranslateX = currentTranslate.split(', ')[0];
+      // console.log('currentTranslateX', currentTranslateX);
+      node.style.transform = 'translate(' + currentTranslateX + ', 0px)';
+      // console.log(node.getAttribute('style'));
+   }
+});
+
+elementBestMovieButton.addEventListener('click', (e) => onClickMyButton(e));
+elementBestMovieImage.addEventListener('click', (e) => onClickPicture(e));
 
 elementsSliders.forEach(function (node) {
    node.querySelector('span.arrowLeft').addEventListener('click', (e) => onclickLeft(e));
    node.querySelector('span.arrowRight').addEventListener('click', (e) => onclickRight(e));
    const elementPicture = node.querySelectorAll('img');
-   console.log(node);
+   // console.log(node);
    elementPicture.forEach(function (node) {
       node.addEventListener('click', (e) => onClickPicture(e));
    });
 });
+
+window.innerWidth <= MediaQueryForPhone ? resetDisplayArrowsV() : resetDisplayArrowsH();
 
 function onClickMyButton(e) {
    console.log('Click button', e);
@@ -62,16 +133,10 @@ function onClickMyButton(e) {
 function onclickRight(e) {
    console.log('Click droit');
    if (window.innerWidth <= MediaQueryForPhone) {
-      HpositionSliderBestMovies = 0;
-      HpositionSliderCategory1 = 0;
-      HpositionSliderCategory2 = 0;
-      HpositionSliderCategory3 = 0;
+      resetHpositionSliders();
       // console.log('Téléphone');
    } else {
-      VpositionSliderBestMovies = 0;
-      VpositionSliderCategory1 = 0;
-      VpositionSliderCategory2 = 0;
-      VpositionSliderCategory3 = 0;
+      resetVpositionSliders();
       // console.log('Pas téléphone');
    }
    if (window.innerWidth > MediaQueryForPhone && window.innerWidth <= MediaQueryForTablet) {
@@ -82,21 +147,27 @@ function onclickRight(e) {
    const slider_id = e.target.parentElement.parentElement.id;
    switch (slider_id) {
       case 'sliderBestMovies':
+         console.log('elementArrowRightSliderBestMovies = ', elementArrowRightSliderBestMovies);
          if (window.innerWidth <= MediaQueryForPhone) {
             // Phone
             if (VpositionSliderBestMovies <= VpositionslidersMax) {
                VpositionSliderBestMovies++;
                const offset = VpositionSliderBestMovies * -H_Image;
-               const transformString = 'translateY(' + offset.toString() + 'px)';
+               const transformString = 'translate(0px, ' + offset.toString() + 'px)';
                elementSliderBestMovies.querySelector('div.containerImagesSlider').style.transform = transformString;
+               elementSliderBestMovies.querySelector('div.containerNoFilm').style.transform = transformString;
+               displayArrowsVBestMovies();
             }
          } else {
             // Not Phone
             if (HpositionSliderBestMovies <= HpositionslidersMax) {
+               // elementArrowRightSliderBestMovies.style.display = 'block';
                HpositionSliderBestMovies++;
                const offset = HpositionSliderBestMovies * -L_Image;
-               const transformString = 'translateX(' + offset.toString() + 'px)';
+               const transformString = 'translate(' + offset.toString() + 'px, 0px)';
                elementSliderBestMovies.querySelector('div.containerImagesSlider').style.transform = transformString;
+               elementSliderBestMovies.querySelector('div.containerNoFilm').style.transform = transformString;
+               displayArrowsHBestMovies();
             }
          }
          break;
@@ -106,16 +177,20 @@ function onclickRight(e) {
             if (VpositionSliderCategory1 <= VpositionslidersMax) {
                VpositionSliderCategory1++;
                const offset = VpositionSliderCategory1 * -H_Image;
-               const transformString = 'translateY(' + offset.toString() + 'px)';
+               const transformString = 'translate(0px, ' + offset.toString() + 'px)';
                elementSliderCategory1.querySelector('div.containerImagesSlider').style.transform = transformString;
+               elementSliderCategory1.querySelector('div.containerNoFilm').style.transform = transformString;
+               displayArrowsVCategory1();
             }
          } else {
             // Not Phone
             if (HpositionSliderCategory1 <= HpositionslidersMax) {
                HpositionSliderCategory1++;
                const offset = HpositionSliderCategory1 * -L_Image;
-               const transformString = 'translateX(' + offset.toString() + 'px)';
+               const transformString = 'translate(' + offset.toString() + 'px, 0px)';
                elementSliderCategory1.querySelector('div.containerImagesSlider').style.transform = transformString;
+               elementSliderCategory1.querySelector('div.containerNoFilm').style.transform = transformString;
+               displayArrowsHCategory1();
             }
          }
          break;
@@ -125,16 +200,20 @@ function onclickRight(e) {
             if (VpositionSliderCategory2 <= VpositionslidersMax) {
                VpositionSliderCategory2++;
                const offset = VpositionSliderCategory2 * -H_Image;
-               const transformString = 'translateY(' + offset.toString() + 'px)';
+               const transformString = 'translate(0px, ' + offset.toString() + 'px)';
                elementSliderCategory2.querySelector('div.containerImagesSlider').style.transform = transformString;
+               elementSliderCategory2.querySelector('div.containerNoFilm').style.transform = transformString;
+               displayArrowsVCategory2();
             }
          } else {
             // Not Phone
             if (HpositionSliderCategory2 <= HpositionslidersMax) {
                HpositionSliderCategory2++;
                const offset = HpositionSliderCategory2 * -L_Image;
-               const transformString = 'translateX(' + offset.toString() + 'px)';
+               const transformString = 'translate(' + offset.toString() + 'px, 0px)';
                elementSliderCategory2.querySelector('div.containerImagesSlider').style.transform = transformString;
+               elementSliderCategory2.querySelector('div.containerNoFilm').style.transform = transformString;
+               displayArrowsHCategory2();
             }
          }
          break;
@@ -144,16 +223,20 @@ function onclickRight(e) {
             if (VpositionSliderCategory3 <= VpositionslidersMax) {
                VpositionSliderCategory3++;
                const offset = VpositionSliderCategory3 * -H_Image;
-               const transformString = 'translateY(' + offset.toString() + 'px)';
+               const transformString = 'translate(0px, ' + offset.toString() + 'px)';
                elementSliderCategory3.querySelector('div.containerImagesSlider').style.transform = transformString;
+               elementSliderCategory3.querySelector('div.containerNoFilm').style.transform = transformString;
+               displayArrowsVCategory3();
             }
          } else {
             // Not Phone
             if (HpositionSliderCategory3 <= HpositionslidersMax) {
                HpositionSliderCategory3++;
                const offset = HpositionSliderCategory3 * -L_Image;
-               const transformString = 'translateX(' + offset.toString() + 'px)';
+               const transformString = 'translate(' + offset.toString() + 'px, 0px)';
                elementSliderCategory3.querySelector('div.containerImagesSlider').style.transform = transformString;
+               elementSliderCategory3.querySelector('div.containerNoFilm').style.transform = transformString;
+               displayArrowsHCategory3();
             }
          }
          break;
@@ -163,16 +246,10 @@ function onclickRight(e) {
 function onclickLeft(e) {
    console.log('Click gauche');
    if (window.innerWidth <= MediaQueryForPhone) {
-      HpositionSliderBestMovies = 0;
-      HpositionSliderCategory1 = 0;
-      HpositionSliderCategory2 = 0;
-      HpositionSliderCategory3 = 0;
+      resetHpositionSliders();
       // console.log('Téléphone');
    } else {
-      VpositionSliderBestMovies = 0;
-      VpositionSliderCategory1 = 0;
-      VpositionSliderCategory2 = 0;
-      VpositionSliderCategory3 = 0;
+      resetVpositionSliders();
       // console.log('Pas téléphone');
    }
    if (window.innerWidth > MediaQueryForPhone && window.innerWidth <= MediaQueryForTablet) {
@@ -188,16 +265,20 @@ function onclickLeft(e) {
             if (VpositionSliderBestMovies > 0) {
                VpositionSliderBestMovies--;
                const offset = VpositionSliderBestMovies * -H_Image;
-               const transformString = 'translateY(' + offset.toString() + 'px)';
+               const transformString = 'translate(0px, ' + offset.toString() + 'px)';
                elementSliderBestMovies.querySelector('div.containerImagesSlider').style.transform = transformString;
+               elementSliderBestMovies.querySelector('div.containerNoFilm').style.transform = transformString;
+               displayArrowsVBestMovies();
             }
          } else {
             // Not Phone
             if (HpositionSliderBestMovies > 0) {
                HpositionSliderBestMovies--;
                const offset = HpositionSliderBestMovies * -L_Image;
-               const transformString = 'translateX(' + offset.toString() + 'px)';
+               const transformString = 'translate(' + offset.toString() + 'px, 0px)';
                elementSliderBestMovies.querySelector('div.containerImagesSlider').style.transform = transformString;
+               elementSliderBestMovies.querySelector('div.containerNoFilm').style.transform = transformString;
+               displayArrowsHBestMovies();
             }
          }
          break;
@@ -207,16 +288,20 @@ function onclickLeft(e) {
             if (VpositionSliderCategory1 > 0) {
                VpositionSliderCategory1--;
                const offset = VpositionSliderCategory1 * -H_Image;
-               const transformString = 'translateY(' + offset.toString() + 'px)';
+               const transformString = 'translate(0px, ' + offset.toString() + 'px)';
                elementSliderCategory1.querySelector('div.containerImagesSlider').style.transform = transformString;
+               elementSliderCategory1.querySelector('div.containerNoFilm').style.transform = transformString;
+               displayArrowsVCategory1();
             }
          } else {
             // Not Phone
             if (HpositionSliderCategory1 > 0) {
                HpositionSliderCategory1--;
                const offset = HpositionSliderCategory1 * -L_Image;
-               const transformString = 'translateX(' + offset.toString() + 'px)';
+               const transformString = 'translate(' + offset.toString() + 'px, 0px)';
                elementSliderCategory1.querySelector('div.containerImagesSlider').style.transform = transformString;
+               elementSliderCategory1.querySelector('div.containerNoFilm').style.transform = transformString;
+               displayArrowsHCategory1();
             }
          }
          break;
@@ -226,16 +311,20 @@ function onclickLeft(e) {
             if (VpositionSliderCategory2 > 0) {
                VpositionSliderCategory2--;
                const offset = VpositionSliderCategory2 * -H_Image;
-               const transformString = 'translateY(' + offset.toString() + 'px)';
+               const transformString = 'translate(0px, ' + offset.toString() + 'px)';
                elementSliderCategory2.querySelector('div.containerImagesSlider').style.transform = transformString;
+               elementSliderCategory2.querySelector('div.containerNoFilm').style.transform = transformString;
+               displayArrowsVCategory2();
             }
          } else {
             // Not Phone
             if (HpositionSliderCategory2 > 0) {
                HpositionSliderCategory2--;
                const offset = HpositionSliderCategory2 * -L_Image;
-               const transformString = 'translateX(' + offset.toString() + 'px)';
+               const transformString = 'translate(' + offset.toString() + 'px, 0px)';
                elementSliderCategory2.querySelector('div.containerImagesSlider').style.transform = transformString;
+               elementSliderCategory2.querySelector('div.containerNoFilm').style.transform = transformString;
+               displayArrowsHCategory2();
             }
          }
          break;
@@ -245,76 +334,139 @@ function onclickLeft(e) {
             if (VpositionSliderCategory3 > 0) {
                VpositionSliderCategory3--;
                const offset = VpositionSliderCategory3 * -H_Image;
-               const transformString = 'translateY(' + offset.toString() + 'px)';
+               const transformString = 'translate(0px, ' + offset.toString() + 'px)';
                elementSliderCategory3.querySelector('div.containerImagesSlider').style.transform = transformString;
+               elementSliderCategory3.querySelector('div.containerNoFilm').style.transform = transformString;
+               displayArrowsVCategory3();
             }
          } else {
             // Not Phone
             if (HpositionSliderCategory3 > 0) {
                HpositionSliderCategory3--;
                const offset = HpositionSliderCategory3 * -L_Image;
-               const transformString = 'translateX(' + offset.toString() + 'px)';
+               const transformString = 'translate(' + offset.toString() + 'px, 0px)';
                elementSliderCategory3.querySelector('div.containerImagesSlider').style.transform = transformString;
+               elementSliderCategory3.querySelector('div.containerNoFilm').style.transform = transformString;
+               displayArrowsHCategory3();
             }
          }
          break;
    }
 }
 
-function onClickPicture(e) {
+async function onClickPicture(e) {
    const elementModal = document.getElementById('modal1');
-   const id = e.target.dataset.id;
+   const movie_id = e.target.dataset.id;
    console.log(e.target.dataset.id);
-   const modalContent = `<div class="containerModal">
-               <div class="containerModal0">
-                  <div class="containerModal1">
-                     <div class="containerModal1-1">
-                        <div id="modalTitle">123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789</div>
-                        <div id="modalYear">Année de sortie</div>
-                     </div>
-                     <div class="containerModal1-2">
-                        <img
-                           class="modalPicture"
-                           id="574"
-                           src="https://m.media-amazon.com/images/M/MV5BNTY4ZDk5MzYtNjk2Zi00ZWY3LTgwZjUtNDc5MWEzMWFlOTQzXkEyXkFqcGdeQXVyNjU1MTEwMjI@._V1_UY268_CR1,0,182,268_AL_.jpg"
-                           alt="The Story of the Kelly Gang"
-                        />
-                     </div>
-                  </div>
-                  <div class="containerModal2">
-                     <div class="containerModal2-1">
-                        <div id="modalGenres">[Genre]89012 [Genre]89012 [Genre]89012 </div>
-                        <div id="modalDuration">Durée6789 123456789</div>
-                        <div id="modalRating">Rating789 123456789</div>
-                     </div>
-                     <div id="modalSynopsis">Résumé789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 </div>
-                  </div>
-               </div>
-               <div class="containerModal3">
-                  <div class="containerModal3-1">
-                     <div class="modalDirectors">[Réalisateur]3456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 </div>
-                     <div id="modalActors">[Acteur]9 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 </div>
-                  </div>
-                  <div class="containerModal3-2">
-                     <div id="modalCountry">Pays d'origine56789 123456789 </div>
-                     <div class="containerModal3-2-1">
-                        <div id="modalScore">Score6789 123456789 </div>
-                        <div id="modalResult">Résultat9 123456789 </div>
-                     </div>
-                  </div>
-               </div>
-               <button id="modalClose">X</button>
-               <div>Id du film = ${id}</div>
-            </div>`;
-
-   makeModal(elementModal, modalContent);
+   const modalContent = await makeModal1(movie_id);
+   displayModal(elementModal, modalContent);
 }
 
-function makeModal(elementModal, modalContent) {
+function displayModal(elementModal, modalContent) {
    elementModal.innerHTML = modalContent;
    elementModal.showModal();
    elementModal.querySelector('button').addEventListener('click', function () {
       elementModal.close();
       elementModal.innerHTML = '';
    });
+}
+
+function resetDisplayArrowsH() {
+   displayArrowsHBestMovies();
+   displayArrowsHCategory1();
+   displayArrowsHCategory2();
+   displayArrowsHCategory3();
+}
+
+function resetDisplayArrowsV() {
+   displayArrowsVBestMovies();
+   displayArrowsVCategory1();
+   displayArrowsVCategory2();
+   displayArrowsVCategory3();
+}
+
+function displayArrowsHBestMovies() {
+   HpositionSliderBestMovies <= HpositionslidersMax
+      ? (elementArrowRightSliderBestMovies.style.display = 'block')
+      : (elementArrowRightSliderBestMovies.style.display = 'none');
+   HpositionSliderBestMovies > 0
+      ? (elementArrowLeftSliderBestMovies.style.display = 'block')
+      : (elementArrowLeftSliderBestMovies.style.display = 'none');
+}
+
+function displayArrowsVBestMovies() {
+   VpositionSliderBestMovies <= VpositionslidersMax
+      ? (elementArrowRightSliderBestMovies.style.display = 'block')
+      : (elementArrowRightSliderBestMovies.style.display = 'none');
+   VpositionSliderBestMovies > 0
+      ? (elementArrowLeftSliderBestMovies.style.display = 'block')
+      : (elementArrowLeftSliderBestMovies.style.display = 'none');
+}
+
+function displayArrowsHCategory1() {
+   HpositionSliderCategory1 <= HpositionslidersMax
+      ? (elementArrowRightSliderCategory1.style.display = 'block')
+      : (elementArrowRightSliderCategory1.style.display = 'none');
+   HpositionSliderCategory1 > 0
+      ? (elementArrowLeftSliderCategory1.style.display = 'block')
+      : (elementArrowLeftSliderCategory1.style.display = 'none');
+}
+
+function displayArrowsVCategory1() {
+   VpositionSliderCategory1 <= VpositionslidersMax
+      ? (elementArrowRightSliderCategory1.style.display = 'block')
+      : (elementArrowRightSliderCategory1.style.display = 'none');
+   VpositionSliderCategory1 > 0
+      ? (elementArrowLeftSliderCategory1.style.display = 'block')
+      : (elementArrowLeftSliderCategory1.style.display = 'none');
+}
+
+function displayArrowsHCategory2() {
+   HpositionSliderCategory2 <= HpositionslidersMax
+      ? (elementArrowRightSliderCategory2.style.display = 'block')
+      : (elementArrowRightSliderCategory2.style.display = 'none');
+   HpositionSliderCategory2 > 0
+      ? (elementArrowLeftSliderCategory2.style.display = 'block')
+      : (elementArrowLeftSliderCategory2.style.display = 'none');
+}
+
+function displayArrowsVCategory2() {
+   VpositionSliderCategory2 <= VpositionslidersMax
+      ? (elementArrowRightSliderCategory2.style.display = 'block')
+      : (elementArrowRightSliderCategory2.style.display = 'none');
+   VpositionSliderCategory2 > 0
+      ? (elementArrowLeftSliderCategory2.style.display = 'block')
+      : (elementArrowLeftSliderCategory2.style.display = 'none');
+}
+
+function displayArrowsHCategory3() {
+   HpositionSliderCategory3 <= HpositionslidersMax
+      ? (elementArrowRightSliderCategory3.style.display = 'block')
+      : (elementArrowRightSliderCategory3.style.display = 'none');
+   HpositionSliderCategory3 > 0
+      ? (elementArrowLeftSliderCategory3.style.display = 'block')
+      : (elementArrowLeftSliderCategory3.style.display = 'none');
+}
+
+function displayArrowsVCategory3() {
+   VpositionSliderCategory3 <= VpositionslidersMax
+      ? (elementArrowRightSliderCategory3.style.display = 'block')
+      : (elementArrowRightSliderCategory3.style.display = 'none');
+   VpositionSliderCategory3 > 0
+      ? (elementArrowLeftSliderCategory3.style.display = 'block')
+      : (elementArrowLeftSliderCategory3.style.display = 'none');
+}
+
+function resetVpositionSliders() {
+   VpositionSliderBestMovies = 0;
+   VpositionSliderCategory1 = 0;
+   VpositionSliderCategory2 = 0;
+   VpositionSliderCategory3 = 0;
+}
+
+function resetHpositionSliders() {
+   HpositionSliderBestMovies = 0;
+   HpositionSliderCategory1 = 0;
+   HpositionSliderCategory2 = 0;
+   HpositionSliderCategory3 = 0;
 }

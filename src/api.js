@@ -162,14 +162,13 @@ export async function getData(url) {
    try {
       const response = await fetch(url);
       if (!response.ok) {
-         const message = `An error has occured: ${response.status}`;
+         const message = `Une erreur est survenue: ${response.status}`;
          throw new Error(message);
       }
       const res_json = await response.json();
       return res_json;
    } catch (error) {
-      console.log('En erreur');
-      console.log(error);
-      return error;
+      console.log('Impossible de contacter le serveur', error.message);
+      window.location.replace(`./fail.html?error=${error.message}`);
    }
 }

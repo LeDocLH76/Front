@@ -27,6 +27,7 @@ header {
    display: flex;
    justify-content: space-between;
    font-size: 24px;
+   font-weight: 400;
 }
 
 nav {
@@ -41,6 +42,10 @@ nav {
    width: 20%;
    display: flex;
    justify-content: center;
+   font-size: 24px;
+   font-weight: 400;
+   margin: 0;
+
 
 }
 
@@ -90,6 +95,7 @@ main {
 
 #BestMovieTitle {
    display: flex;
+   justify-content: center;
    width: 90%;
    height: 50%;
    overflow: hidden;
@@ -112,10 +118,19 @@ main {
 
 }
 
+#containerBestMovieText button:hover {
+   cursor: pointer;
+
+}
+
 #bestMovie img {
    width: 200px;
    height: 300px;
    object-fit: contain;
+}
+
+#bestMovie img:hover {
+   cursor: pointer;
 }
 
 @media (max-width: 720px) {
@@ -166,11 +181,12 @@ main {
    left: 20px;
    top: 100px;
    user-select: none;
-
+   display: none;
 }
 
 .arrowLeft:hover {
    transform: scale(1.4, 1.4);
+   cursor: pointer;
 }
 
 .arrowRight {
@@ -179,27 +195,44 @@ main {
    right: 20px;
    top: 100px;
    user-select: none;
+   display: none;
 }
 
 .arrowRight:hover {
    transform: scale(1.4, 1.4);
+   cursor: pointer;
 }
 
 .windowSlider {
+   display: flex;
+   flex-direction: row;
    width: 600px;
    height: 222px;
    border: 1px solid orange;
    overflow: hidden;
+}
 
+.containerImagesSlider, .containerNoFilm {
+   display: flex;
+   flex-direction: row;
+   width: 1200px;
+   height: 222px;
+   transition: .3s;
 }
 
 .containerImagesSlider {
-   width: 1050px;
+   background-color: transparent;
+}
+
+.containerNoFilm {
+   z-index: -20;
+}
+
+.no_film {
+   background-image: url("../pictures/pas-de-film-ici.jpg");
+   background-size: contain;
+   width: 150px;
    height: 222px;
-   display: flex;
-   flex-direction: row;
-   border: 1px solid grey;
-   transition: .3s
 }
 
 .containerImagesSlider img {
@@ -207,6 +240,10 @@ main {
    width: 150px;
    height: 222px;
    object-fit: contain;
+}
+
+.containerImagesSlider img:hover {
+   cursor: pointer;
 }
 
 .slider {
@@ -240,6 +277,7 @@ main {
 /* This media query must be adjust in relation with script.js */
 @media(max-width:600px) {
    .windowSlider {
+      flex-direction: column;
       width: 300px;
    }
 
@@ -247,7 +285,7 @@ main {
       width: 400px;
    }
 
-   .containerImagesSlider {
+   .containerImagesSlider, .containerNoFilm {
       width: 300px;
       height: 892px;
       flex-wrap: wrap;
@@ -262,13 +300,8 @@ main {
    }
 
    .arrowRight:hover {
-
       transform: rotate(90deg) scale(1.4, 1.4);
-
    }
-
-
-
 }
 
 /***************/
@@ -514,7 +547,7 @@ main {
    }
 
    .containerModal1-1-1 {
-      height: auto%;
+      height: auto;
    }
 
    .containerModal1-2 {
