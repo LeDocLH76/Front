@@ -114,20 +114,22 @@ elementsSliders.forEach(function (node) {
 window.innerWidth <= MediaQueryForPhone ? resetDisplayArrowsV() : resetDisplayArrowsH();
 
 function onClickMyButton(e) {
-   console.log('Click button', e);
+   console.log(e.target.dataset.id);
+   onClickPicture(e);
+   // console.log('Click button', e);
    // console.log(elementBestMovieDescription.getAttribute('style'));
-   if (elementBestMovieDescription.getAttribute('style') == 'display:none') {
-      elementBestMovieDescription.setAttribute('style', 'display:bloc');
-      elementBestMovieButton.innerHTML = 'Voir moins';
-   } else {
-      elementBestMovieDescription.setAttribute('style', 'display:none');
-      elementBestMovieButton.innerHTML = 'Voir plus';
-   }
-   if (elementContainerDescription.getAttribute('style') == 'overflow:hidden') {
-      elementContainerDescription.setAttribute('style', 'overflow:scroll');
-   } else {
-      elementContainerDescription.setAttribute('style', 'overflow:hidden');
-   }
+   // if (elementBestMovieDescription.getAttribute('style') == 'display: none') {
+   //    elementBestMovieDescription.setAttribute('style', 'display: bloc');
+   //    elementBestMovieButton.innerHTML = 'Voir moins';
+   // } else {
+   //    elementBestMovieDescription.setAttribute('style', 'display: none');
+   //    elementBestMovieButton.innerHTML = 'Voir plus';
+   // }
+   // if (elementContainerDescription.getAttribute('style') == 'overflow: hidden') {
+   //    elementContainerDescription.setAttribute('style', 'overflow: scroll');
+   // } else {
+   //    elementContainerDescription.setAttribute('style', 'overflow: hidden');
+   // }
 }
 
 function onclickRight(e) {

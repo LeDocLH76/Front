@@ -31,7 +31,7 @@ export async function fill_dom() {
 
 export async function makeModal1(movie_id) {
    const movie_data = await find_one_movie_by_id(movie_id);
-   console.log(movie_data);
+   // console.log(movie_data);
    const image_exist = await getImage(movie_data.image_url);
    const image = image_exist == 0 ? movie_data.image_url : '../pictures/image-indisponible.jpg';
    const rated = isNaN(parseInt(movie_data.rated, 10)) ? 'Inconnu' : movie_data.rated;
@@ -127,6 +127,7 @@ async function fill_best_movie_and_slider(best_movies_data) {
    element_best_movie_bloc_image.innerHTML = movie_bloc_image;
    const element_best_movie_description = document.querySelector('div#BestMovieDescription');
    element_best_movie_description.innerHTML = best_movie_description;
+   document.getElementById('BestMovieButton').setAttribute('data-id', movie_id);
    // -----------------------
    // fill best movies slider
    // -----------------------
