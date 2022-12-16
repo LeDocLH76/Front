@@ -165,13 +165,18 @@ async function fill_one_image_slider(movie, element_container_slider) {
    const movie_title = movie.title;
    const image_exist = await getImage(movie.image_url);
    const image = image_exist == 0 ? movie.image_url : '../pictures/image-indisponible.jpg';
+
+   const element_div = document.createElement('div');
    const element_image = document.createElement('img');
-   // console.log('element image = ', element_image);
-   element_container_slider.appendChild(element_image);
-   const current_child = element_container_slider.lastElementChild;
-   current_child.setAttribute('data-id', movie_id);
-   current_child.setAttribute('alt', 'image du film ' + movie_title);
-   current_child.setAttribute('src', image);
+
+   element_container_slider.appendChild(element_div);
+   const current_div = element_container_slider.lastElementChild;
+   current_div.setAttribute('class', 'containerImage');
+   current_div.appendChild(element_image);
+   const current_img = current_div.lastElementChild;
+   current_img.setAttribute('data-id', movie_id);
+   current_img.setAttribute('alt', 'image du film ' + movie_title);
+   current_img.setAttribute('src', image);
 }
 
 async function getImage(url) {

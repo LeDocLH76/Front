@@ -192,8 +192,8 @@ main {
 /***************/
 
 .containerArrows {
-   width: 700px;
    position: relative;
+   width: 90vw;
    border: 1px solid yellow;
    display: flex;
    justify-content: center;
@@ -202,8 +202,8 @@ main {
 .arrowLeft {
    position: absolute;
    font-size: larger;
-   left: 20px;
-   top: 100px;
+   left: 2vw;
+   top: 14vw;
    user-select: none;
    display: none;
 }
@@ -216,8 +216,8 @@ main {
 .arrowRight {
    position: absolute;
    font-size: larger;
-   right: 20px;
-   top: 100px;
+   right: 2vw;
+   top: 14vw;
    user-select: none;
    display: none;
 }
@@ -228,10 +228,10 @@ main {
 }
 
 .windowSlider {
+   position: relative;
    display: flex;
    flex-direction: row;
-   width: 600px;
-   height: 222px;
+   width: 80vw;
    border: 1px solid orange;
    overflow: hidden;
 }
@@ -239,8 +239,7 @@ main {
 .containerImagesSlider, .containerNoFilm {
    display: flex;
    flex-direction: row;
-   width: 1200px;
-   height: 222px;
+   width: 200vw;
    transition: .3s;
 }
 
@@ -249,21 +248,27 @@ main {
 }
 
 .containerNoFilm {
+   position: absolute;
+   left: 0;
+   top: 0;
    z-index: -20;
 }
 
 .no_film {
    background-image: url("../pictures/pas-de-film-ici.jpg");
    background-size: contain;
-   width: 150px;
-   height: 222px;
 }
 
-.containerImagesSlider img {
-   display: block;
-   width: 150px;
-   height: 222px;
-   object-fit: contain;
+.containerImage {
+   width: 20vw;
+   height: 29vw;
+   object-fit: cover;
+}
+
+.containerImage img {
+   width: 20vw;
+   height: 29vw;
+
 }
 
 .containerImagesSlider img:hover {
@@ -288,35 +293,45 @@ main {
 
 }
 
-@media (max-width: 720px) {
-   .windowSlider {
-      width: 450px;
-   }
-
-   .containerArrows {
-      width: 550px;
-   }
-}
 
 /* This media query must be adjust in relation with script.js */
 @media(max-width:600px) {
    .windowSlider {
       flex-direction: column;
-      width: 300px;
+      height: 58vw;
    }
 
    .containerArrows {
-      width: 400px;
+      height: 58vw
    }
 
    .containerImagesSlider, .containerNoFilm {
-      width: 300px;
-      height: 892px;
+      width: 80vw;
+      height: 116vw;
       flex-wrap: wrap;
    }
 
-   .arrowLeft, .arrowRight {
+   .containerImage {
+      width: 40vw;
+      height: 58vw;
+   }
+
+   .containerImage img {
+      width: 40vw;
+      height: 58vw;
+
+   }
+
+   .arrowLeft {
       transform: rotate(90deg);
+      left: 1vw;
+      top: 26vw;
+   }
+
+   .arrowRight {
+      transform: rotate(90deg);
+      right: 1vw;
+      top: 26vw;
    }
 
    .arrowLeft:hover {

@@ -12,8 +12,8 @@ let VpositionSliderCategory1 = 0;
 let VpositionSliderCategory2 = 0;
 let VpositionSliderCategory3 = 0;
 const VpositionslidersMax = 2;
-const L_Image = 150;
-const H_Image = 222;
+const L_Image = 20;
+const H_Image = 58;
 const MediaQueryForPhone = 600;
 const MediaQueryForTablet = 720;
 const elementBestMovieButton = document.getElementById('BestMovieButton');
@@ -138,7 +138,7 @@ function onclickRight(e) {
             if (VpositionSliderBestMovies <= VpositionslidersMax) {
                VpositionSliderBestMovies++;
                const offset = VpositionSliderBestMovies * -H_Image;
-               const transformString = 'translate(0px, ' + offset.toString() + 'px)';
+               const transformString = 'translate(0vw, ' + offset.toString() + 'vw)';
                elementSliderBestMovies.querySelector('div.containerImagesSlider').style.transform = transformString;
                elementSliderBestMovies.querySelector('div.containerNoFilm').style.transform = transformString;
                displayArrowsVBestMovies();
@@ -149,7 +149,7 @@ function onclickRight(e) {
                // elementArrowRightSliderBestMovies.style.display = 'block';
                HpositionSliderBestMovies++;
                const offset = HpositionSliderBestMovies * -L_Image;
-               const transformString = 'translate(' + offset.toString() + 'px, 0px)';
+               const transformString = 'translate(' + offset.toString() + 'vw, 0vw)';
                elementSliderBestMovies.querySelector('div.containerImagesSlider').style.transform = transformString;
                elementSliderBestMovies.querySelector('div.containerNoFilm').style.transform = transformString;
                displayArrowsHBestMovies();
@@ -162,7 +162,7 @@ function onclickRight(e) {
             if (VpositionSliderCategory1 <= VpositionslidersMax) {
                VpositionSliderCategory1++;
                const offset = VpositionSliderCategory1 * -H_Image;
-               const transformString = 'translate(0px, ' + offset.toString() + 'px)';
+               const transformString = 'translate(0vw, ' + offset.toString() + 'vw)';
                elementSliderCategory1.querySelector('div.containerImagesSlider').style.transform = transformString;
                elementSliderCategory1.querySelector('div.containerNoFilm').style.transform = transformString;
                displayArrowsVCategory1();
@@ -172,7 +172,7 @@ function onclickRight(e) {
             if (HpositionSliderCategory1 <= HpositionslidersMax) {
                HpositionSliderCategory1++;
                const offset = HpositionSliderCategory1 * -L_Image;
-               const transformString = 'translate(' + offset.toString() + 'px, 0px)';
+               const transformString = 'translate(' + offset.toString() + 'vw, 0vw)';
                elementSliderCategory1.querySelector('div.containerImagesSlider').style.transform = transformString;
                elementSliderCategory1.querySelector('div.containerNoFilm').style.transform = transformString;
                displayArrowsHCategory1();
@@ -185,7 +185,7 @@ function onclickRight(e) {
             if (VpositionSliderCategory2 <= VpositionslidersMax) {
                VpositionSliderCategory2++;
                const offset = VpositionSliderCategory2 * -H_Image;
-               const transformString = 'translate(0px, ' + offset.toString() + 'px)';
+               const transformString = 'translate(0vw, ' + offset.toString() + 'vw)';
                elementSliderCategory2.querySelector('div.containerImagesSlider').style.transform = transformString;
                elementSliderCategory2.querySelector('div.containerNoFilm').style.transform = transformString;
                displayArrowsVCategory2();
@@ -195,7 +195,7 @@ function onclickRight(e) {
             if (HpositionSliderCategory2 <= HpositionslidersMax) {
                HpositionSliderCategory2++;
                const offset = HpositionSliderCategory2 * -L_Image;
-               const transformString = 'translate(' + offset.toString() + 'px, 0px)';
+               const transformString = 'translate(' + offset.toString() + 'vw, 0vw)';
                elementSliderCategory2.querySelector('div.containerImagesSlider').style.transform = transformString;
                elementSliderCategory2.querySelector('div.containerNoFilm').style.transform = transformString;
                displayArrowsHCategory2();
@@ -208,7 +208,7 @@ function onclickRight(e) {
             if (VpositionSliderCategory3 <= VpositionslidersMax) {
                VpositionSliderCategory3++;
                const offset = VpositionSliderCategory3 * -H_Image;
-               const transformString = 'translate(0px, ' + offset.toString() + 'px)';
+               const transformString = 'translate(0vw, ' + offset.toString() + 'vw)';
                elementSliderCategory3.querySelector('div.containerImagesSlider').style.transform = transformString;
                elementSliderCategory3.querySelector('div.containerNoFilm').style.transform = transformString;
                displayArrowsVCategory3();
@@ -218,7 +218,7 @@ function onclickRight(e) {
             if (HpositionSliderCategory3 <= HpositionslidersMax) {
                HpositionSliderCategory3++;
                const offset = HpositionSliderCategory3 * -L_Image;
-               const transformString = 'translate(' + offset.toString() + 'px, 0px)';
+               const transformString = 'translate(' + offset.toString() + 'vw, 0vw)';
                elementSliderCategory3.querySelector('div.containerImagesSlider').style.transform = transformString;
                elementSliderCategory3.querySelector('div.containerNoFilm').style.transform = transformString;
                displayArrowsHCategory3();
@@ -250,7 +250,7 @@ function onclickLeft(e) {
             if (VpositionSliderBestMovies > 0) {
                VpositionSliderBestMovies--;
                const offset = VpositionSliderBestMovies * -H_Image;
-               const transformString = 'translate(0px, ' + offset.toString() + 'px)';
+               const transformString = 'translate(0vw, ' + offset.toString() + 'vw)';
                elementSliderBestMovies.querySelector('div.containerImagesSlider').style.transform = transformString;
                elementSliderBestMovies.querySelector('div.containerNoFilm').style.transform = transformString;
                displayArrowsVBestMovies();
@@ -260,7 +260,7 @@ function onclickLeft(e) {
             if (HpositionSliderBestMovies > 0) {
                HpositionSliderBestMovies--;
                const offset = HpositionSliderBestMovies * -L_Image;
-               const transformString = 'translate(' + offset.toString() + 'px, 0px)';
+               const transformString = 'translate(' + offset.toString() + 'vw, 0vw)';
                elementSliderBestMovies.querySelector('div.containerImagesSlider').style.transform = transformString;
                elementSliderBestMovies.querySelector('div.containerNoFilm').style.transform = transformString;
                displayArrowsHBestMovies();
@@ -273,7 +273,7 @@ function onclickLeft(e) {
             if (VpositionSliderCategory1 > 0) {
                VpositionSliderCategory1--;
                const offset = VpositionSliderCategory1 * -H_Image;
-               const transformString = 'translate(0px, ' + offset.toString() + 'px)';
+               const transformString = 'translate(0vw, ' + offset.toString() + 'vw)';
                elementSliderCategory1.querySelector('div.containerImagesSlider').style.transform = transformString;
                elementSliderCategory1.querySelector('div.containerNoFilm').style.transform = transformString;
                displayArrowsVCategory1();
@@ -283,7 +283,7 @@ function onclickLeft(e) {
             if (HpositionSliderCategory1 > 0) {
                HpositionSliderCategory1--;
                const offset = HpositionSliderCategory1 * -L_Image;
-               const transformString = 'translate(' + offset.toString() + 'px, 0px)';
+               const transformString = 'translate(' + offset.toString() + 'vw, 0vw)';
                elementSliderCategory1.querySelector('div.containerImagesSlider').style.transform = transformString;
                elementSliderCategory1.querySelector('div.containerNoFilm').style.transform = transformString;
                displayArrowsHCategory1();
@@ -296,7 +296,7 @@ function onclickLeft(e) {
             if (VpositionSliderCategory2 > 0) {
                VpositionSliderCategory2--;
                const offset = VpositionSliderCategory2 * -H_Image;
-               const transformString = 'translate(0px, ' + offset.toString() + 'px)';
+               const transformString = 'translate(0vw, ' + offset.toString() + 'vw)';
                elementSliderCategory2.querySelector('div.containerImagesSlider').style.transform = transformString;
                elementSliderCategory2.querySelector('div.containerNoFilm').style.transform = transformString;
                displayArrowsVCategory2();
@@ -306,7 +306,7 @@ function onclickLeft(e) {
             if (HpositionSliderCategory2 > 0) {
                HpositionSliderCategory2--;
                const offset = HpositionSliderCategory2 * -L_Image;
-               const transformString = 'translate(' + offset.toString() + 'px, 0px)';
+               const transformString = 'translate(' + offset.toString() + 'vw, 0vw)';
                elementSliderCategory2.querySelector('div.containerImagesSlider').style.transform = transformString;
                elementSliderCategory2.querySelector('div.containerNoFilm').style.transform = transformString;
                displayArrowsHCategory2();
@@ -319,7 +319,7 @@ function onclickLeft(e) {
             if (VpositionSliderCategory3 > 0) {
                VpositionSliderCategory3--;
                const offset = VpositionSliderCategory3 * -H_Image;
-               const transformString = 'translate(0px, ' + offset.toString() + 'px)';
+               const transformString = 'translate(0vw, ' + offset.toString() + 'vw)';
                elementSliderCategory3.querySelector('div.containerImagesSlider').style.transform = transformString;
                elementSliderCategory3.querySelector('div.containerNoFilm').style.transform = transformString;
                displayArrowsVCategory3();
@@ -329,7 +329,7 @@ function onclickLeft(e) {
             if (HpositionSliderCategory3 > 0) {
                HpositionSliderCategory3--;
                const offset = HpositionSliderCategory3 * -L_Image;
-               const transformString = 'translate(' + offset.toString() + 'px, 0px)';
+               const transformString = 'translate(' + offset.toString() + 'vw, 0vw)';
                elementSliderCategory3.querySelector('div.containerImagesSlider').style.transform = transformString;
                elementSliderCategory3.querySelector('div.containerNoFilm').style.transform = transformString;
                displayArrowsHCategory3();
