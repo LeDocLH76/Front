@@ -16,9 +16,7 @@ const L_Image = 150;
 const H_Image = 222;
 const MediaQueryForPhone = 600;
 const MediaQueryForTablet = 720;
-const elementContainerDescription = document.getElementById('containerDescription');
 const elementBestMovieButton = document.getElementById('BestMovieButton');
-const elementBestMovieDescription = document.getElementById('BestMovieDescription');
 const elementBestMovieImage = document.getElementById('containerBestMovieImage');
 const elementsSliders = document.querySelectorAll('section.slider');
 const elementsContainerImageSlider = document.querySelectorAll('div.containerImagesSlider');
@@ -114,22 +112,7 @@ elementsSliders.forEach(function (node) {
 window.innerWidth <= MediaQueryForPhone ? resetDisplayArrowsV() : resetDisplayArrowsH();
 
 function onClickMyButton(e) {
-   console.log(e.target.dataset.id);
    onClickPicture(e);
-   // console.log('Click button', e);
-   // console.log(elementBestMovieDescription.getAttribute('style'));
-   // if (elementBestMovieDescription.getAttribute('style') == 'display: none') {
-   //    elementBestMovieDescription.setAttribute('style', 'display: bloc');
-   //    elementBestMovieButton.innerHTML = 'Voir moins';
-   // } else {
-   //    elementBestMovieDescription.setAttribute('style', 'display: none');
-   //    elementBestMovieButton.innerHTML = 'Voir plus';
-   // }
-   // if (elementContainerDescription.getAttribute('style') == 'overflow: hidden') {
-   //    elementContainerDescription.setAttribute('style', 'overflow: scroll');
-   // } else {
-   //    elementContainerDescription.setAttribute('style', 'overflow: hidden');
-   // }
 }
 
 function onclickRight(e) {
