@@ -67,8 +67,6 @@ nav {
 /***************/
 
 main {
-   /* width: 100%; */
-   border: 2px solid yellow;
    padding-bottom: 20px;
 }
 
@@ -78,7 +76,6 @@ main {
 
 #bestMovie {
    margin: 5px;
-   border: 1px solid red;
    display: flex;
    justify-content: center;
 
@@ -87,7 +84,6 @@ main {
 #containerBestMovie {
    width: 90vw;
    height: 45vw;
-   border: 1px solid grey;
    display: flex;
    justify-content: space-between;
 }
@@ -97,7 +93,6 @@ main {
    display: flex;
    flex-direction: column;
    justify-content: space-evenly;
-   border: 1px solid red;
 }
 
 #containerBestMovieImage {
@@ -127,7 +122,6 @@ main {
    display: block;
    width: fit-content;
    margin: 1vw;
-
 }
 
 #BestMovieDescription, .categoryTitle {
@@ -141,7 +135,6 @@ main {
 
 #containerBestMovieText button:hover {
    cursor: pointer;
-
 }
 
 #bestMovie img {
@@ -163,7 +156,6 @@ main {
 
    .titleHeader {
       min-width: 150px;
-
    }
 
    #containerBestMovie {
@@ -197,19 +189,33 @@ main {
       font-size: 22px;
       font-weight: 500;
    }
-
-
 }
 
 /***************/
 /* Sliders */
 /***************/
+.categoryTitle {
+   height: 50px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-size: 30px;
+   margin: 10px 0 5px 0;
+
+}
+
+.slider {
+   margin: 5px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+
+}
 
 .containerArrows {
    position: relative;
    width: 90vw;
    height: 29vw;
-   border: 1px solid yellow;
    display: flex;
    justify-content: center;
 }
@@ -249,7 +255,6 @@ main {
    display: flex;
    flex-direction: row;
    width: 80vw;
-   border: 1px solid orange;
    overflow: hidden;
 }
 
@@ -292,25 +297,6 @@ main {
 
 .containerImagesSlider img:hover {
    cursor: pointer;
-}
-
-.slider {
-   margin: 5px;
-   border: 1px solid green;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-
-}
-
-.categoryTitle {
-   height: 50px;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   font-size: 30px;
-   margin: 10px 0 5px 0;
-
 }
 
 /* This media query must be adjust in relation with script.js */
