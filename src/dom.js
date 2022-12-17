@@ -54,21 +54,34 @@ export async function makeModal1(movie_id) {
                      </div>
                   </div>
                   <div class="containerModal2">
-                     <div class="containerModal2-1">
-                        <div id="modalGenres">Categorie: ${movie_data.genres}</div>
+                     <div class="containerModalText containerModal2-1">
+                        <div>
+                           <div id="modalGenresTitle">Categorie</div>
+                           <div id="modalGenres">${movie_data.genres}</div>
+                        </div>
                         <div id="modalDuration">Durée: ${movie_data.duration} mn</div>
                         <div id="modalRating">Rating: ${rated}</div>
                      </div>
-                     <div id="modalSynopsis">Résumé: ${movie_data.description}</div>
+                     <div class="containerModalText">
+                        <div id="modalSynopsisTitle">Résumé</div>
+                        <div id="modalSynopsis">${movie_data.description}</div>
+                     </div>
                   </div>
                </div>
                <div class="containerModal3">
                   <div class="containerModal3-1">
-                     <div class="modalDirectors">Réalisateur:${movie_data.directors}</div>
+                     <div class="containerModalText">
+                        <div class="modalDirectorsTitle">Réalisateur</div>
+                        <div class="modalDirectors">${movie_data.directors}</div>
+                     </div>
+                     <div class="containerModalText">
+                        <div class="modalActorsTitle">Acteurs</div>
+                        <div class="modalActors">${movie_data.actors}</div>
+                     </div>
                   </div>
                   <div class="containerModal3-2">
-                     <div id="modalCountry">Pays d'origine: ${movie_data.countries}</div>
-                     <div class="containerModal3-2-1">
+                     <div class="containerModalText" id="modalCountry">Pays d'origine: ${movie_data.countries}</div>
+                     <div class="containerModalText containerModal3-2-1">
                         <div id="modalScore">Score: ${movie_data.imdb_score}</div>
                         <div id="modalResult">Résultat: ${worldwide_gross_income}</div>
                      </div>
