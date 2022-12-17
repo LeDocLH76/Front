@@ -12,8 +12,12 @@ let VpositionSliderCategory1 = 0;
 let VpositionSliderCategory2 = 0;
 let VpositionSliderCategory3 = 0;
 const VpositionslidersMax = 2;
+// For desktop
 const L_Image = 20;
+
+// For phone
 const H_Image = 58;
+
 const MediaQueryForPhone = 600;
 const MediaQueryForTablet = 720;
 const elementBestMovieButton = document.getElementById('BestMovieButton');
