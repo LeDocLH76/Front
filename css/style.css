@@ -6,6 +6,10 @@ body {
    margin: 0 0 0 0;
    padding: 0;
    box-sizing: border-box;
+   background-image: url("../pictures/bandicam\ 2022-12-17\ 14-56-25-142 (2).jpg");
+   background-size: contain;
+   background-repeat: repeat-y;
+
 }
 
 h2 {
@@ -19,8 +23,7 @@ h2 {
 /***************/
 
 header {
-   background-color: black;
-   color: white;
+   color: black;
    width: 100%;
    height: 100px;
    display: flex;
@@ -32,8 +35,8 @@ header {
    width: 80%;
    display: flex;
    justify-content: space-between;
-   font-size: 24px;
-   font-weight: 400;
+   font-size: 30px;
+   font-weight: 600;
 }
 
 nav {
@@ -44,12 +47,12 @@ nav {
 }
 
 .titleHeader {
-   min-width: 130px;
+   min-width: 190px;
    width: 20%;
    display: flex;
    justify-content: center;
-   font-size: 24px;
-   font-weight: 400;
+   font-size: 30px;
+   font-weight: 600;
    margin: 0;
 
 
@@ -66,6 +69,7 @@ nav {
 main {
    /* width: 100%; */
    border: 2px solid yellow;
+   padding-bottom: 20px;
 }
 
 /***************/
@@ -106,7 +110,7 @@ main {
    justify-content: center;
    overflow: hidden;
    margin: 1vw 1vw 0 1vw;
-   font-size: 26px;
+   font-size: 34px;
 
 }
 
@@ -115,7 +119,8 @@ main {
    flex-direction: column;
    align-items: center;
    margin: 0 1vw 1vw 1vw;
-   font-size: 20px;
+   font-size: 28px;
+   font-weight: 500;
 }
 
 #containerBestMovieText button {
@@ -123,6 +128,15 @@ main {
    width: fit-content;
    margin: 1vw;
 
+}
+
+#BestMovieDescription, .categoryTitle {
+   padding: 5px;
+   background-color: lightgray;
+   border: 2px solid;
+   border-color: darkgray;
+   border-radius: 5px;
+   box-shadow: -8px -8px 15px 0px rgb(161, 153, 153);
 }
 
 #containerBestMovieText button:hover {
@@ -142,6 +156,16 @@ main {
 }
 
 @media (max-width: 720px) {
+   .containerHeader, .titleHeader {
+      font-size: 22px;
+      font-weight: 600;
+   }
+
+   .titleHeader {
+      min-width: 150px;
+
+   }
+
    #containerBestMovie {
       flex-direction: column-reverse;
       align-items: center;
@@ -156,6 +180,7 @@ main {
    #BestMovieTitle {
       flex-direction: column;
       align-items: center;
+      font-size: 24px;
    }
 
    #containerBestMovieImage {
@@ -167,6 +192,13 @@ main {
       width: 90vw;
       height: 90vw;
    }
+
+   #containerDescription {
+      font-size: 22px;
+      font-weight: 500;
+   }
+
+
 }
 
 /***************/
@@ -184,7 +216,8 @@ main {
 
 .arrowLeft {
    position: absolute;
-   font-size: larger;
+   font-size: 30px;
+   font-weight: 600;
    left: 2vw;
    top: 14vw;
    user-select: none;
@@ -198,7 +231,8 @@ main {
 
 .arrowRight {
    position: absolute;
-   font-size: larger;
+   font-size: 30px;
+   font-weight: 600;
    right: 2vw;
    top: 14vw;
    user-select: none;
@@ -274,12 +308,17 @@ main {
    display: flex;
    justify-content: center;
    align-items: center;
-   font-size: 20px;
+   font-size: 30px;
+   margin: 10px 0 5px 0;
 
 }
 
 /* This media query must be adjust in relation with script.js */
 @media(max-width:600px) {
+   .categoryTitle {
+      font-size: 24px;
+   }
+
    .windowSlider {
       flex-direction: column;
       height: 58vw;
@@ -311,24 +350,26 @@ main {
 
    }
 
-   .arrowLeft {
+   .arrowLeft, .arrowRight {
+      font-size: 16px;
       transform: rotate(90deg);
-      left: 1vw;
       top: 26vw;
+   }
+
+   .arrowLeft {
+      left: .6vw;
    }
 
    .arrowRight {
-      transform: rotate(90deg);
-      right: 1vw;
-      top: 26vw;
+      right: .6vw;
    }
 
    .arrowLeft:hover {
-      transform: rotate(90deg) scale(1.4, 1.4);
+      transform: rotate(90deg);
    }
 
    .arrowRight:hover {
-      transform: rotate(90deg) scale(1.4, 1.4);
+      transform: rotate(90deg);
    }
 }
 
