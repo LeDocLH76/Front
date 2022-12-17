@@ -191,6 +191,7 @@ main {
 .containerArrows {
    position: relative;
    width: 90vw;
+   height: 29vw;
    border: 1px solid yellow;
    display: flex;
    justify-content: center;
@@ -254,6 +255,8 @@ main {
 .no_film {
    background-image: url("../pictures/pas-de-film-ici.jpg");
    background-size: contain;
+   width: 20vw;
+   height: 29vw;
 }
 
 .containerImage {
@@ -290,7 +293,6 @@ main {
 
 }
 
-
 /* This media query must be adjust in relation with script.js */
 @media(max-width:600px) {
    .windowSlider {
@@ -309,6 +311,11 @@ main {
    }
 
    .containerImage {
+      width: 40vw;
+      height: 58vw;
+   }
+
+   .no_film {
       width: 40vw;
       height: 58vw;
    }
@@ -558,9 +565,6 @@ main {
    .containerModal3-2 {
       width: 100%;
    }
-
-
-
 }
 
 @media(max-width: 720px) {
