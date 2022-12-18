@@ -1,613 +1,540 @@
-/***************/
-/* All      */
-/***************/
+   /***************/
+   /* Main        */
+   /***************/
 
-body {
-   margin: 0 0 0 0;
-   padding: 0;
-   box-sizing: border-box;
-   background-image: url("../pictures/bandicam\ 2022-12-17\ 14-56-25-142 (2).jpg");
-   background-size: contain;
-   background-repeat: repeat-y;
-
-}
-
-h2 {
-   margin: 0;
-   margin-block-start: 0;
-   margin-block-end: 0;
-}
-
-/***************/
-/* Header      */
-/***************/
-
-header {
-   color: black;
-   width: 100%;
-   height: 100px;
-   display: flex;
-   justify-content: left;
-   align-items: center;
-}
-
-.containerHeader {
-   width: 80%;
-   display: flex;
-   justify-content: space-between;
-   font-size: 30px;
-   font-weight: 600;
-}
-
-nav {
-   min-width: 150px;
-   width: 20%;
-   display: flex;
-   justify-content: space-between;
-}
-
-.titleHeader {
-   min-width: 190px;
-   width: 20%;
-   display: flex;
-   justify-content: center;
-   font-size: 30px;
-   font-weight: 600;
-   margin: 0;
-
-
-}
-
-.navHeaderItem {
-   padding: 0 10px 0 10px;
-}
-
-/***************/
-/* Main        */
-/***************/
-
-main {
-   padding-bottom: 20px;
-}
-
-/***************/
-/* Best movie  */
-/***************/
-
-#bestMovie {
-   margin: 5px;
-   display: flex;
-   justify-content: center;
-
-}
-
-#containerBestMovie {
-   width: 90vw;
-   height: 45vw;
-   display: flex;
-   justify-content: space-between;
-}
-
-#containerBestMovieText {
-   width: 45vw;
-   display: flex;
-   flex-direction: column;
-   justify-content: space-evenly;
-}
-
-#containerBestMovieImage {
-   width: 45vw;
-   height: 45vw;
-}
-
-#BestMovieTitle {
-   display: flex;
-   justify-content: center;
-   overflow: hidden;
-   margin: 1vw 1vw 0 1vw;
-   font-size: 34px;
-
-}
-
-#containerDescription {
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   margin: 0 1vw 1vw 1vw;
-   font-size: 28px;
-   font-weight: 500;
-}
-
-#containerBestMovieText button {
-   display: block;
-   width: fit-content;
-   margin: 1vw;
-}
-
-#BestMovieDescription, .categoryTitle {
-   padding: 5px;
-   background-color: lightgray;
-   border: 2px solid;
-   border-color: darkgray;
-   border-radius: 5px;
-   box-shadow: -8px -8px 15px 0px rgb(161, 153, 153);
-}
-
-#containerBestMovieText button:hover {
-   cursor: pointer;
-}
-
-#bestMovie img {
-   width: 45vw;
-   height: 45vw;
-   object-fit: cover;
-   object-position: top;
-}
-
-#bestMovie img:hover {
-   cursor: pointer;
-}
-
-@media (max-width: 720px) {
-   .containerHeader, .titleHeader {
-      font-size: 22px;
-      font-weight: 600;
+   main {
+      padding-bottom: 20px;
    }
 
-   .titleHeader {
-      min-width: 150px;
+   /***************/
+   /* Best movie  */
+   /***************/
+
+   #bestMovie {
+      margin: 5px;
+      display: flex;
+      justify-content: center;
+
    }
 
    #containerBestMovie {
-      flex-direction: column-reverse;
-      align-items: center;
-      height: auto;
+      width: 90vw;
+      height: 45vw;
+      display: flex;
+      justify-content: space-between;
    }
 
    #containerBestMovieText {
-      align-items: center;
-      width: 90vw;
-   }
-
-   #BestMovieTitle {
+      width: 45vw;
+      display: flex;
       flex-direction: column;
-      align-items: center;
-      font-size: 24px;
+      justify-content: space-evenly;
    }
 
    #containerBestMovieImage {
-      width: 90vw;
-      height: 90vw;
+      width: 45vw;
+      height: 45vw;
    }
 
-   #containerBestMovieImage img {
-      width: 90vw;
-      height: 90vw;
+   #BestMovieTitle {
+      display: flex;
+      justify-content: center;
+      overflow: hidden;
+      margin: 1vw 1vw 0 1vw;
+      font-size: 34px;
+
    }
 
    #containerDescription {
-      font-size: 22px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0 1vw 1vw 1vw;
+      font-size: 28px;
       font-weight: 500;
    }
-}
 
-/***************/
-/* Sliders */
-/***************/
-.categoryTitle {
-   height: 50px;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   font-size: 30px;
-   margin: 10px 0 5px 0;
-
-}
-
-.slider {
-   margin: 5px;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-
-}
-
-.containerArrows {
-   position: relative;
-   width: 90vw;
-   height: 29vw;
-   display: flex;
-   justify-content: center;
-}
-
-.arrowLeft {
-   position: absolute;
-   font-size: 30px;
-   font-weight: 600;
-   left: 2vw;
-   top: 14vw;
-   user-select: none;
-   display: none;
-}
-
-.arrowLeft:hover {
-   transform: scale(1.4, 1.4);
-   cursor: pointer;
-}
-
-.arrowRight {
-   position: absolute;
-   font-size: 30px;
-   font-weight: 600;
-   right: 2vw;
-   top: 14vw;
-   user-select: none;
-   display: none;
-}
-
-.arrowRight:hover {
-   transform: scale(1.4, 1.4);
-   cursor: pointer;
-}
-
-.windowSlider {
-   position: relative;
-   display: flex;
-   flex-direction: row;
-   width: 80vw;
-   overflow: hidden;
-}
-
-.containerImagesSlider, .containerNoFilm {
-   display: flex;
-   flex-direction: row;
-   width: 200vw;
-   transition: .3s;
-}
-
-.containerImagesSlider {
-   background-color: transparent;
-}
-
-.containerNoFilm {
-   position: absolute;
-   left: 0;
-   top: 0;
-   z-index: -20;
-}
-
-.no_film {
-   background-image: url("../pictures/pas-de-film-ici.jpg");
-   background-size: contain;
-   width: 20vw;
-   height: 29vw;
-}
-
-.containerImage {
-   width: 20vw;
-   height: 29vw;
-   object-fit: cover;
-}
-
-.containerImage img {
-   width: 20vw;
-   height: 29vw;
-
-}
-
-.containerImagesSlider img:hover {
-   cursor: pointer;
-}
-
-/* This media query must be adjust in relation with script.js */
-@media(max-width:600px) {
-   .categoryTitle {
-      font-size: 24px;
+   #containerBestMovieText button {
+      display: block;
+      width: fit-content;
+      margin: 1vw;
    }
 
-   .windowSlider {
+   #BestMovieDescription, .categoryTitle {
+      padding: 5px;
+      background-color: lightgray;
+      border: 2px solid;
+      border-color: darkgray;
+      border-radius: 5px;
+      box-shadow: -8px -8px 15px 0px rgb(161, 153, 153);
+   }
+
+   #containerBestMovieText button:hover {
+      cursor: pointer;
+   }
+
+   #bestMovie img {
+      width: 45vw;
+      height: 45vw;
+      object-fit: cover;
+      object-position: top;
+   }
+
+   #bestMovie img:hover {
+      cursor: pointer;
+   }
+
+   @media (max-width: 720px) {
+      #containerBestMovie {
+         flex-direction: column-reverse;
+         align-items: center;
+         height: auto;
+      }
+
+      #containerBestMovieText {
+         align-items: center;
+         width: 90vw;
+      }
+
+      #BestMovieTitle {
+         flex-direction: column;
+         align-items: center;
+         font-size: 24px;
+      }
+
+      #containerBestMovieImage {
+         width: 90vw;
+         height: 90vw;
+      }
+
+      #containerBestMovieImage img {
+         width: 90vw;
+         height: 90vw;
+      }
+
+      #containerDescription {
+         font-size: 22px;
+         font-weight: 500;
+      }
+   }
+
+   /***************/
+   /* Sliders */
+   /***************/
+   .categoryTitle {
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 30px;
+      margin: 10px 0 5px 0;
+
+   }
+
+   .slider {
+      margin: 5px;
+      display: flex;
       flex-direction: column;
-      height: 58vw;
+      align-items: center;
+
    }
 
    .containerArrows {
-      height: 58vw
-   }
-
-   .containerImagesSlider, .containerNoFilm {
-      width: 80vw;
-      height: 116vw;
-      flex-wrap: wrap;
-   }
-
-   .containerImage {
-      width: 40vw;
-      height: 58vw;
-   }
-
-   .no_film {
-      width: 40vw;
-      height: 58vw;
-   }
-
-   .containerImage img {
-      width: 40vw;
-      height: 58vw;
-
-   }
-
-   .arrowLeft, .arrowRight {
-      font-size: 16px;
-      transform: rotate(90deg);
-      top: 26vw;
+      position: relative;
+      width: 90vw;
+      height: 29vw;
+      display: flex;
+      justify-content: center;
    }
 
    .arrowLeft {
-      left: .6vw;
-   }
-
-   .arrowRight {
-      right: .6vw;
+      position: absolute;
+      font-size: 30px;
+      font-weight: 600;
+      left: 2vw;
+      top: 14vw;
+      user-select: none;
+      display: none;
    }
 
    .arrowLeft:hover {
-      transform: rotate(90deg);
+      transform: scale(1.4, 1.4);
+      cursor: pointer;
+   }
+
+   .arrowRight {
+      position: absolute;
+      font-size: 30px;
+      font-weight: 600;
+      right: 2vw;
+      top: 14vw;
+      user-select: none;
+      display: none;
    }
 
    .arrowRight:hover {
-      transform: rotate(90deg);
+      transform: scale(1.4, 1.4);
+      cursor: pointer;
    }
-}
 
-/***************/
-/* Modal      */
-/***************/
+   .windowSlider {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      width: 80vw;
+      overflow: hidden;
+   }
 
-.modal {
-   position: fixed;
-   top: 0;
-   right: 0;
-   bottom: 0;
-   left: 0;
-   width: 80%;
-   height: 80%;
-   overflow: auto;
-   border: none;
-   background-image: url("../pictures/rangees-sieges-rouges-dans-theatre_53876-64710.webp");
-   background-size: cover;
-   color: aliceblue;
-}
+   .containerImagesSlider, .containerNoFilm {
+      display: flex;
+      flex-direction: row;
+      width: 200vw;
+      transition: .3s;
+   }
 
-.containerModal {
-   box-sizing: border-box;
-   width: 100%;
-   height: 100%;
-   display: flex;
-   flex-direction: column;
-}
+   .containerImagesSlider {
+      background-color: transparent;
+   }
 
-#modalClose {
-   position: absolute;
-   padding: 0;
-   width: 20px;
-   height: 20px;
-   right: 0px;
-   top: 0px;
-}
+   .containerNoFilm {
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: -20;
+   }
 
-#modalClose:hover {
-   background-color: red;
-   color: white;
-   border: none;
-   cursor: pointer;
-   transition: .3s;
-}
+   .no_film {
+      background-image: url("../pictures/pas-de-film-ici.jpg");
+      background-size: contain;
+      width: 20vw;
+      height: 29vw;
+   }
 
-.containerModal0 {
-   width: 100%;
-   height: 70%;
-   display: flex;
-   justify-content: space-between;
+   .containerImage {
+      width: 20vw;
+      height: 29vw;
+      object-fit: cover;
+   }
 
-}
+   .containerImage img {
+      width: 20vw;
+      height: 29vw;
 
-.containerModal1 {
-   width: 70%;
-   display: flex;
-   flex-direction: row;
-}
+   }
 
-.containerModal1-1 {
-   width: 50%;
-   display: flex;
-   flex-direction: column;
-   text-align: center;
-}
+   .containerImagesSlider img:hover {
+      cursor: pointer;
+   }
 
-#modalTitle {
-   width: 100%;
-   height: 80%;
-   padding-top: 15px;
-   font-size: 24px;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-}
+   /* This media query must be adjust in relation with script.js */
+   @media(max-width:600px) {
+      .categoryTitle {
+         font-size: 24px;
+      }
 
-#modalYear {
-   padding-top: 15px;
-   width: 100%;
-   height: 20%;
-   font-size: 20px;
-}
+      .windowSlider {
+         flex-direction: column;
+         height: 58vw;
+      }
 
-.containerModal1-2 {
-   width: 50%;
-   height: 100%;
-}
+      .containerArrows {
+         height: 58vw
+      }
 
-.modalPicture {
-   width: 100%;
-   height: 100%;
-   object-fit: contain;
-}
+      .containerImagesSlider, .containerNoFilm {
+         width: 80vw;
+         height: 116vw;
+         flex-wrap: wrap;
+      }
 
-.containerModal2 {
-   width: 30%;
-   display: flex;
-   flex-direction: column;
-   text-align: center;
-   justify-content: space-around;
-   overflow: hidden;
-   font-size: 18px;
-}
+      .containerImage {
+         width: 40vw;
+         height: 58vw;
+      }
 
-.containerModal2-1 {
-   display: flex;
-   flex-direction: column;
-   justify-content: space-around;
-}
+      .no_film {
+         width: 40vw;
+         height: 58vw;
+      }
 
-#modalGenres {
-   padding-top: 10px;
-}
+      .containerImage img {
+         width: 40vw;
+         height: 58vw;
 
-#modalDuration {
-   padding-top: 10px;
-}
+      }
 
-#modalRating {
-   padding-top: 10px;
-}
+      .arrowLeft, .arrowRight {
+         font-size: 16px;
+         transform: rotate(90deg);
+         top: 26vw;
+      }
 
-#modalSynopsis {
-   font-size: 16px;
-}
+      .arrowLeft {
+         left: .6vw;
+      }
 
-.containerModal3 {
-   width: 100%;
-   height: 30%;
-   display: flex;
-   flex-direction: row;
-   justify-content: space-between;
-   font-size: 18px;
+      .arrowRight {
+         right: .6vw;
+      }
 
-}
+      .arrowLeft:hover {
+         transform: rotate(90deg);
+      }
 
-.containerModal3-1 {
-   width: 50%;
-   display: flex;
-   flex-direction: column;
-   justify-content: space-evenly;
-   text-align: center;
-}
+      .arrowRight:hover {
+         transform: rotate(90deg);
+      }
+   }
 
-.containerModal3-2 {
-   width: 50%;
-   display: flex;
-   flex-direction: column;
-   justify-content: space-evenly;
-   text-align: center;
+   /***************/
+   /* Modal      */
+   /***************/
 
-}
-
-#modalCountry {
-   width: 100%;
-
-}
-
-.containerModal3-2-1 {
-   width: 100%;
-   display: flex;
-   flex-direction: row;
-   justify-content: space-between;
-}
-
-#modalScore {
-   width: 50%;
-}
-
-#modalResult {
-   width: 50%;
-}
-
-@media (max-width: 1200px) {
    .modal {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 80%;
+      height: 80%;
+      overflow: auto;
+      border: none;
+      background-image: url("../pictures/rangees-sieges-rouges-dans-theatre_53876-64710.webp");
+      background-size: cover;
+      color: aliceblue;
+   }
+
+   .containerModal {
+      box-sizing: border-box;
       width: 100%;
       height: 100%;
-   }
-}
-
-@media(max-width: 1000px) {
-   .containerModal0 {
+      display: flex;
       flex-direction: column;
-      height: auto;
+   }
+
+   #modalClose {
+      position: absolute;
+      padding: 0;
+      width: 20px;
+      height: 20px;
+      right: 0px;
+      top: 0px;
+   }
+
+   #modalClose:hover {
+      background-color: red;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: .3s;
+   }
+
+   .containerModal0 {
+      width: 100%;
+      height: 70%;
+      display: flex;
+      justify-content: space-between;
+
    }
 
    .containerModal1 {
+      width: 70%;
+      display: flex;
+      flex-direction: row;
+   }
+
+   .containerModal1-1 {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+   }
+
+   #modalTitle {
       width: 100%;
+      height: 80%;
+      padding-top: 15px;
+      font-size: 24px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+   }
+
+   #modalYear {
+      padding-top: 15px;
+      width: 100%;
+      height: 20%;
+      font-size: 20px;
+   }
+
+   .containerModal1-2 {
+      width: 50%;
+      height: 100%;
+   }
+
+   .modalPicture {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
    }
 
    .containerModal2 {
-      width: 100%;
-      height: auto;
+      width: 30%;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      justify-content: space-around;
+      overflow: hidden;
+      font-size: 18px;
    }
 
    .containerModal2-1 {
-      flex-direction: row;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+   }
+
+   #modalGenres {
+      padding-top: 10px;
+   }
+
+   #modalDuration {
+      padding-top: 10px;
+   }
+
+   #modalRating {
+      padding-top: 10px;
+   }
+
+   #modalSynopsis {
+      font-size: 16px;
    }
 
    .containerModal3 {
       width: 100%;
-      flex-direction: column;
-      height: auto;
-      padding-bottom: 10px;
+      height: 30%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      font-size: 18px;
+
    }
 
    .containerModal3-1 {
-      width: 100%;
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      text-align: center;
    }
 
    .containerModal3-2 {
-      width: 100%;
-   }
-
-   .containerModalText {
-      padding-top: 5px;
-   }
-}
-
-@media(max-width: 720px) {
-
-   .containerModal {
-      height: auto;
-   }
-
-   .containerModal1 {
-      height: auto;
-      flex-direction: column-reverse;
-   }
-
-   .containerModal1-1 {
-      width: 100%;
-      height: auto;
-   }
-
-   .containerModal1-1-1 {
-      height: auto;
-   }
-
-   .containerModal1-2 {
-      width: 100%;
-      height: auto;
-      max-height: initial;
-   }
-
-   .containerModal2-1 {
+      width: 50%;
+      display: flex;
       flex-direction: column;
-   }
-}
+      justify-content: space-evenly;
+      text-align: center;
 
-/***************/
-/* Footer      */
-/***************/
+   }
+
+   #modalCountry {
+      width: 100%;
+
+   }
+
+   .containerModal3-2-1 {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+   }
+
+   #modalScore {
+      width: 50%;
+   }
+
+   #modalResult {
+      width: 50%;
+   }
+
+   @media (max-width: 1200px) {
+      .modal {
+         width: 100%;
+         height: 100%;
+      }
+   }
+
+   @media(max-width: 1000px) {
+      .containerModal0 {
+         flex-direction: column;
+         height: auto;
+      }
+
+      .containerModal1 {
+         width: 100%;
+      }
+
+      .containerModal2 {
+         width: 100%;
+         height: auto;
+      }
+
+      .containerModal2-1 {
+         flex-direction: row;
+      }
+
+      .containerModal3 {
+         width: 100%;
+         flex-direction: column;
+         height: auto;
+         padding-bottom: 10px;
+      }
+
+      .containerModal3-1 {
+         width: 100%;
+      }
+
+      .containerModal3-2 {
+         width: 100%;
+      }
+
+      .containerModalText {
+         padding-top: 5px;
+      }
+   }
+
+   @media(max-width: 720px) {
+
+      .containerModal {
+         height: auto;
+      }
+
+      .containerModal1 {
+         height: auto;
+         flex-direction: column-reverse;
+      }
+
+      .containerModal1-1 {
+         width: 100%;
+         height: auto;
+      }
+
+      .containerModal1-1-1 {
+         height: auto;
+      }
+
+      .containerModal1-2 {
+         width: 100%;
+         height: auto;
+         max-height: initial;
+      }
+
+      .containerModal2-1 {
+         flex-direction: column;
+      }
+   }
+
+   /***************/
+   /* Footer      */
+   /***************/

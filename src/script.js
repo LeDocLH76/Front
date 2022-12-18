@@ -1,6 +1,8 @@
-import { fill_dom, makeModal1 } from './dom.js';
+import { fill_dom, makeModal1, getLocalStorage } from './dom.js';
 
-await fill_dom();
+const LS_categories_obj = getLocalStorage();
+
+await fill_dom(LS_categories_obj);
 
 let HpositionSliderBestMovies = 0;
 let HpositionSliderCategory1 = 0;

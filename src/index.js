@@ -1,11 +1,11 @@
-import { getCategory, find_best_movie_data, find_stats_all_movie, getData } from './api.js';
+import { getCategories, find_best_movie_data, find_stats_all_movie, getData } from './api.js';
 // import { fill_title_sliders, fill_best_movie_and_slider, fill_category_slider } from './dom.js';
 
 main();
 
 async function main() {
    console.log('Avant');
-   let category_array = await getCategory(25);
+   let category_array = await getCategories();
    console.log(category_array);
    // for (let category of category_array) {
    //    let data = await find_best_movie_data(1, category);

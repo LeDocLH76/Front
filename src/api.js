@@ -1,7 +1,8 @@
-export async function getCategory(item_quantity) {
-   let page_quantity = find_page_quantity(item_quantity);
-   // console.log('nombre de page = ', page_quantity);
+export async function getCategories() {
    const url = 'http://localhost:8000/api/v1/genres/';
+   const category_data = await getData(url);
+   const item_quantity = category_data.count;
+   let page_quantity = find_page_quantity(item_quantity);
    let page_txt = '';
    let data = [];
    for (let page = 1; page <= page_quantity; page++) {
@@ -13,7 +14,6 @@ export async function getCategory(item_quantity) {
          data.push(category.name);
       }
    }
-   data = data.slice(0, item_quantity);
    return data;
 }
 

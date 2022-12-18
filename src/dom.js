@@ -1,26 +1,14 @@
 import { find_one_movie_by_id, find_best_movie_data } from './api.js';
-import { getCategory } from './api.js';
 
-export async function fill_dom() {
+export async function fill_dom(LS_categories_obj) {
    console.log('Avant');
-   const category_array_all = await getCategory(25);
-   let category_array = category_array_all.slice(0, 3);
-   category_array = category_array_all.slice(3, 6);
-   category_array = category_array_all.slice(6, 9);
-   category_array = category_array_all.slice(9, 12);
-   category_array = category_array_all.slice(12, 15);
-   category_array = category_array_all.slice(15, 18);
-   category_array = category_array_all.slice(18, 21);
-   category_array = category_array_all.slice(21, 24);
-   category_array = category_array_all.slice(22);
+   let category_array = [];
    const best_movies_data = await find_best_movie_data(9);
    await fill_best_movie_and_slider(best_movies_data);
-
-   const category_1 = category_array[0];
-   const category_2 = category_array[1];
-   const category_3 = category_array[2];
-   fill_title_sliders(category_1, category_2, category_3);
-
+   fill_title_sliders(LS_categories_obj.category_1, LS_categories_obj.category_2, LS_categories_obj.category_3);
+   category_array.push(LS_categories_obj.category_1);
+   category_array.push(LS_categories_obj.category_2);
+   category_array.push(LS_categories_obj.category_3);
    for (let index = 0; index < 3; index++) {
       const category = category_array[index];
       let movies_data = await find_best_movie_data(8, category);
@@ -89,6 +77,22 @@ export async function makeModal1(movie_id) {
                </div>
                <button id="modalClose">X</button>
             </div>`;
+}
+
+export function getLocalStorage() {
+   let LS_categories_obj = {};
+   if (localStorage.getItem('LS_categories')) {
+      LS_categories_obj = JSON.parse(localStorage.getItem('LS_categories'));
+   } else {
+      const LS_categories = JSON.stringify({
+         category_1: 'Action',
+         category_2: 'Animation',
+         category_3: 'Fantasy',
+      });
+      localStorage.setItem('LS_categories', LS_categories);
+      LS_categories_obj = JSON.parse(LS_categories);
+   }
+   return LS_categories_obj;
 }
 
 function fill_title_sliders(category_1, category_2, category_3) {

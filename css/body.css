@@ -1,0 +1,18 @@
+/***************/
+/* All      */
+/***************/
+
+body {
+   margin: 0 0 0 0;
+   padding: 0;
+   box-sizing: border-box;
+   background-image: url("../pictures/bandicam\ 2022-12-17\ 14-56-25-142 (2).jpg");
+   background-size: contain;
+   background-repeat: repeat-y;
+}
+
+h2 {
+   margin: 0;
+   margin-block-start: 0;
+   margin-block-end: 0;
+}
