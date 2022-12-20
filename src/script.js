@@ -15,8 +15,8 @@ let VpositionSliderCategory2 = 0;
 let VpositionSliderCategory3 = 0;
 const VpositionslidersMax = 2;
 // 20 for desktop. could be change to 26.66 for tablet in onclick... function
-let L_Image = 20;
-
+let L_Image_decktop = 20;
+const L_Image_Tablet = 26.66;
 // For phone
 const H_Image = 58;
 
@@ -42,51 +42,56 @@ const elementArrowLeftSliderCategory3 = elementSliderCategory3.getElementsByClas
 
 window.addEventListener('resize', (e) => {
    if (e.currentTarget.innerWidth <= MediaQueryForPhone) {
-      // Phone
-      // translateY = current
-      // translateX = 0
+      // Phone translateY = current translateX = 0
       elementsContainerImageSlider.forEach(function (node) {
-         if (node.hasAttribute('style')) {
-            resetTranslateY(node);
+         let currentPositionSlider = 0;
+         switch (node.id) {
+            case 'containerSliderBestMovies':
+               currentPositionSlider = VpositionSliderBestMovies;
+               break;
+            case 'containerSliderCategory1':
+               currentPositionSlider = VpositionSliderCategory1;
+               break;
+            case 'containerSliderCategory2':
+               currentPositionSlider = VpositionSliderCategory2;
+               break;
+            case 'containerSliderCategory3':
+               currentPositionSlider = VpositionSliderCategory3;
+               break;
          }
-      });
-      elementsContainernoFilm.forEach(function (node) {
-         if (node.hasAttribute('style')) {
-            resetTranslateY(node);
-         }
+         const currentTranslateY = currentPositionSlider * -H_Image;
+         resetHpositionSliders();
+         resetDisplayArrowsV();
+         node.style.transform = 'translate(0px, ' + currentTranslateY + ')';
+         node.nextElementSibling.style.transform = 'translate(0px, ' + currentTranslateY + ')';
       });
    } else {
-      // Not phone
-      // translateY = 0
-      // translateX = current
+      // Not phone translateY = 0 translateX = current
       elementsContainerImageSlider.forEach(function (node) {
-         if (node.hasAttribute('style')) {
-            resetTranslateX(node);
+         let currentPositionSlider = 0;
+         switch (node.id) {
+            case 'containerSliderBestMovies':
+               currentPositionSlider = HpositionSliderBestMovies;
+               break;
+            case 'containerSliderCategory1':
+               currentPositionSlider = HpositionSliderCategory1;
+               break;
+            case 'containerSliderCategory2':
+               currentPositionSlider = HpositionSliderCategory2;
+               break;
+            case 'containerSliderCategory3':
+               currentPositionSlider = HpositionSliderCategory3;
+               break;
          }
+         const currentTranslateX =
+            window.innerWidth <= MediaQueryForTablet
+               ? currentPositionSlider * -L_Image_Tablet
+               : currentPositionSlider * -L_Image_decktop;
+         resetVpositionSliders();
+         resetDisplayArrowsH();
+         node.style.transform = 'translate(' + currentTranslateX + 'vw, 0px)';
+         node.nextElementSibling.style.transform = 'translate(' + currentTranslateX + 'vw, 0px)';
       });
-      elementsContainernoFilm.forEach(function (node) {
-         if (node.hasAttribute('style')) {
-            resetTranslateX(node);
-         }
-      });
-   }
-
-   function resetTranslateY(node) {
-      resetHpositionSliders();
-      resetDisplayArrowsH();
-      const styleStr = node.getAttribute('style');
-      const currentTranslate = styleStr.split('transform: translate(')[1].split(')')[0];
-      const currentTranslateY = currentTranslate.split(', ')[1];
-      node.style.transform = 'translate(0px, ' + currentTranslateY + ')';
-   }
-
-   function resetTranslateX(node) {
-      resetVpositionSliders();
-      resetDisplayArrowsV();
-      const styleStr = node.getAttribute('style');
-      const currentTranslate = styleStr.split('transform: translate(')[1].split(')')[0];
-      let currentTranslateX = currentTranslate.split(', ')[0];
-      node.style.transform = 'translate(' + currentTranslateX + ', 0px)';
    }
 });
 
@@ -116,14 +121,15 @@ function onclickRight(e) {
       resetVpositionSliders();
       // Not phone
    }
+   let L_Image = 0;
    if (window.innerWidth > MediaQueryForPhone && window.innerWidth <= MediaQueryForTablet) {
       // Tablet
       HpositionslidersMax = 3;
-      L_Image = 26.66;
+      L_Image = L_Image_Tablet;
    } else {
       // Desktop or phone
       HpositionslidersMax = 2;
-      L_Image = 20;
+      L_Image = L_Image_decktop;
    }
    const slider_id = e.target.parentElement.parentElement.id;
    switch (slider_id) {
@@ -262,10 +268,13 @@ function onclickLeft(e) {
       resetVpositionSliders();
       // Not phone
    }
+   let L_Image = 0;
    if (window.innerWidth > MediaQueryForPhone && window.innerWidth <= MediaQueryForTablet) {
       HpositionslidersMax = 3;
+      L_Image = L_Image_Tablet;
    } else {
       HpositionslidersMax = 2;
+      L_Image = L_Image_decktop;
    }
    const slider_id = e.target.parentElement.parentElement.id;
    switch (slider_id) {
