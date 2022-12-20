@@ -227,6 +227,35 @@
    }
 
    /* This media query must be adjust in relation with script.js */
+   @media(max-width:720px) {
+      .windowSlider {
+         height: 38.66vw;
+      }
+
+      .containerArrows {
+         height: 38.66vw
+      }
+
+      .containerImagesSlider, .containerNoFilm {
+         width: 213.28vw;
+      }
+
+      .containerImage {
+         width: 26.66vw;
+         height: 38.66vw;
+      }
+
+      .no_film {
+         width: 26.66vw;
+         height: 38.66vw;
+      }
+
+      .containerImage img {
+         width: 26.66vw;
+         height: 38.66vw;
+      }
+   }
+
    @media(max-width:600px) {
       .categoryTitle {
          font-size: 24px;
@@ -260,7 +289,6 @@
       .containerImage img {
          width: 40vw;
          height: 58vw;
-
       }
 
       .arrowLeft, .arrowRight {

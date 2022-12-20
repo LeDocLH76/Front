@@ -14,8 +14,8 @@ let VpositionSliderCategory1 = 0;
 let VpositionSliderCategory2 = 0;
 let VpositionSliderCategory3 = 0;
 const VpositionslidersMax = 2;
-// For desktop
-const L_Image = 20;
+// 20 for desktop. could be change to 26.66 for tablet in onclick... function
+let L_Image = 20;
 
 // For phone
 const H_Image = 58;
@@ -117,9 +117,13 @@ function onclickRight(e) {
       // Not phone
    }
    if (window.innerWidth > MediaQueryForPhone && window.innerWidth <= MediaQueryForTablet) {
+      // Tablet
       HpositionslidersMax = 3;
+      L_Image = 26.66;
    } else {
+      // Desktop or phone
       HpositionslidersMax = 2;
+      L_Image = 20;
    }
    const slider_id = e.target.parentElement.parentElement.id;
    switch (slider_id) {
