@@ -6,269 +6,118 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta name="description" content="Plateforme incroyable de selection de films" />
       <title>OC DA-Python Netflix</title>
+      <link href="../css/body.css" rel="stylesheet" />
+      <link href="../css/header.css" rel="stylesheet" />
       <link href="../css/style.css" rel="stylesheet" />
    </head>
    <body>
       <header>
          <div class="containerHeader">
-            <div class="titleHeader">JustStreamIt</div>
+            <h1 class="titleHeader">JustStreamIt</h1>
             <nav class="navHeader">
                <div class="navHeaderItem">Acceuil</div>
-               <div class="navHeaderItem">Catégorie</div>
+               <a class="navHeaderItem" href="./categories.html">Catégories</a>
             </nav>
          </div>
       </header>
-      <main>
+      <main id="main">
          <section id="bestMovie">
             <div id="containerBestMovie">
                <div id="containerBestMovieText">
-                  <div id="BestMovieTitle">123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 </div>
-                  <div id="containerDescription" >
+                  <h2 id="BestMovieTitle">Titre du meilleur film</h2>
+                  <div id="containerDescription">
                      <button id="BestMovieButton">Voir plus</button>
-                     <div id="BestMovieDescription" style="display:none">123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 </div>
+                     <div id="BestMovieDescription"></div>
                   </div>
                </div>
-               <div id="containerBestMovieImage">
-                  <!-- image id, src and alt -->
-                  <img
-                     data-id="283"
-                     src="https://m.media-amazon.com/images/M/MV5BNjA5Y2ZhYzctNDc1Yy00OGViLWI3NGUtOTYwZmE3NDFiYmIxXkEyXkFqcGdeQXVyNTIzOTk5ODM@._V1_UY268_CR72,0,182,268_AL_.jpg"
-                     alt="Title"
-                  />
-               </div>
+               <div id="containerBestMovieImage"></div>
             </div>
          </section>
          <section class="slider" id="sliderBestMovies">
-            <div class="categoryTitle">Films les mieux notés</div>
+            <h2 class="categoryTitle">Films les mieux notés</h2>
             <div class="containerArrows">
-               <span class="arrowLeft">&#x21e6</span>
-               <span class="arrowRight">&#x21e8</span>
+               <span class="arrowLeft">&#x21e6;</span>
+               <span class="arrowRight">&#x21e8;</span>
                <div class="windowSlider">
-                  <div class="containerImagesSlider" id="containerSliderBestMovies">
-                     <img
-                           data-id="574"
-                        src="https://m.media-amazon.com/images/M/MV5BNTY4ZDk5MzYtNjk2Zi00ZWY3LTgwZjUtNDc5MWEzMWFlOTQzXkEyXkFqcGdeQXVyNjU1MTEwMjI@._V1_UY268_CR1,0,182,268_AL_.jpg"
-                        alt="The Story of the Kelly Gang"
-                     />
-                     <img
-                           data-id="1892"
-                        src="https://m.media-amazon.com/images/M/MV5BNWVkNjUyYjUtZGU1Yi00YTM4LTg5ZGEtYmNlNDAzNWRjODM2XkEyXkFqcGdeQXVyMzE0MjY5ODA@._V1_UY268_CR7,0,182,268_AL_.jpg"
-                        alt="Den sorte drøm"
-                     />
-                     <img
-                           data-id="2101"
-                        src="https://m.media-amazon.com/images/M/MV5BZTcyMGU4ZmYtYTVmYS00NWFkLWExM2MtYWRlYTlhOWYxNjYwXkEyXkFqcGdeQXVyMzE0MjY5ODA@._V1_UY268_CR7,0,182,268_AL_.jpg"
-                        alt="Cleopatra"
-                     />
-                     <img
-                           data-id="2130"
-                        src="https://m.media-amazon.com/images/M/MV5BNjU1NDMyNGEtODJkYy00M2Y4LTk5YzItYTYxMzkzZWI1MmJiXkEyXkFqcGdeQXVyMzI5NDcxNzI@._V1_UY268_CR5,0,182,268_AL_.jpg"
-                        alt="L'Inferno"
-                     />
-                     <img
-                           data-id="2199"
-                        src="https://m.media-amazon.com/images/M/MV5BZTQ3MDdkMWEtYjJmMS00YmE3LTgxMDktOWUwZjczMTdhNGQ1XkEyXkFqcGdeQXVyODg3Mjk3Mjc@._V1_UX182_CR0,0,182,268_AL_.jpg"
-                        alt="From the Manger to the Cross; or, Jesus of Nazareth"
-                     />
-                     <img
-                           data-id="2423"
-                        src="https://m.media-amazon.com/images/M/MV5BODIwYTFjYWMtNjZiOC00ZWM0LTkzMTAtOGVjYzE1Y2VlMmZjXkEyXkFqcGdeQXVyMzg1ODEwNQ@@._V1_UY268_CR2,0,182,268_AL_.jpg"
-                        alt="Madame DuBarry"
-                     />
-                     <img
-                           data-id="2445"
-                        src="https://m.media-amazon.com/images/M/MV5BOTkyNjk5NzA4Nl5BMl5BanBnXkFtZTgwMDY1NjkwMjE@._V1_UY268_CR9,0,182,268_AL_.jpg"
-                        alt="Quo Vadis?"
-                     />
+                  <div class="containerImagesSlider" id="containerSliderBestMovies"></div>
+                  <div class="containerNoFilm">
+                     <div class="no_film"></div>
+                     <div class="no_film"></div>
+                     <div class="no_film"></div>
+                     <div class="no_film"></div>
+                     <div class="no_film"></div>
+                     <div class="no_film"></div>
+                     <div class="no_film"></div>
+                     <div class="no_film"></div>
                   </div>
                </div>
             </div>
          </section>
          <section class="slider" id="sliderCategory1">
-            <div class="categoryTitle">Nom de la catégorie 1</div>
+            <h2 class="categoryTitle">Catégorie 1</h2>
             <div class="containerArrows">
-               <span class="arrowLeft">&#x21e6</span>
-               <span class="arrowRight">&#x21e8</span>
+               <span class="arrowLeft">&#x21e6;</span>
+               <span class="arrowRight">&#x21e8;</span>
                <div class="windowSlider">
-                  <div class="containerImagesSlider" id="containerSliderCategory1">
-                     <img
-                           data-id="574"
-                        src="https://m.media-amazon.com/images/M/MV5BNTY4ZDk5MzYtNjk2Zi00ZWY3LTgwZjUtNDc5MWEzMWFlOTQzXkEyXkFqcGdeQXVyNjU1MTEwMjI@._V1_UY268_CR1,0,182,268_AL_.jpg"
-                        alt="The Story of the Kelly Gang"
-                     />
-                     <img
-                           data-id="1892"
-                        src="https://m.media-amazon.com/images/M/MV5BNWVkNjUyYjUtZGU1Yi00YTM4LTg5ZGEtYmNlNDAzNWRjODM2XkEyXkFqcGdeQXVyMzE0MjY5ODA@._V1_UY268_CR7,0,182,268_AL_.jpg"
-                        alt="Den sorte drøm"
-                     />
-                     <img
-                           data-id="2101"
-                        src="https://m.media-amazon.com/images/M/MV5BZTcyMGU4ZmYtYTVmYS00NWFkLWExM2MtYWRlYTlhOWYxNjYwXkEyXkFqcGdeQXVyMzE0MjY5ODA@._V1_UY268_CR7,0,182,268_AL_.jpg"
-                        alt="Cleopatra"
-                     />
-                     <img
-                           data-id="2130"
-                        src="https://m.media-amazon.com/images/M/MV5BNjU1NDMyNGEtODJkYy00M2Y4LTk5YzItYTYxMzkzZWI1MmJiXkEyXkFqcGdeQXVyMzI5NDcxNzI@._V1_UY268_CR5,0,182,268_AL_.jpg"
-                        alt="L'Inferno"
-                     />
-                     <img
-                           data-id="2199"
-                        src="https://m.media-amazon.com/images/M/MV5BZTQ3MDdkMWEtYjJmMS00YmE3LTgxMDktOWUwZjczMTdhNGQ1XkEyXkFqcGdeQXVyODg3Mjk3Mjc@._V1_UX182_CR0,0,182,268_AL_.jpg"
-                        alt="From the Manger to the Cross; or, Jesus of Nazareth"
-                     />
-                     <img
-                           data-id="2423"
-                        src="https://m.media-amazon.com/images/M/MV5BODIwYTFjYWMtNjZiOC00ZWM0LTkzMTAtOGVjYzE1Y2VlMmZjXkEyXkFqcGdeQXVyMzg1ODEwNQ@@._V1_UY268_CR2,0,182,268_AL_.jpg"
-                        alt="Madame DuBarry"
-                     />
-                     <img
-                           data-id="2445"
-                        src="https://m.media-amazon.com/images/M/MV5BOTkyNjk5NzA4Nl5BMl5BanBnXkFtZTgwMDY1NjkwMjE@._V1_UY268_CR9,0,182,268_AL_.jpg"
-                        alt="Quo Vadis?"
-                     />
+                  <div class="containerImagesSlider" id="containerSliderCategory1"></div>
+                  <div class="containerNoFilm">
+                     <div class="no_film"></div>
+                     <div class="no_film"></div>
+                     <div class="no_film"></div>
+                     <div class="no_film"></div>
+                     <div class="no_film"></div>
+                     <div class="no_film"></div>
+                     <div class="no_film"></div>
+                     <div class="no_film"></div>
                   </div>
                </div>
             </div>
          </section>
          <section class="slider" id="sliderCategory2">
-            <div class="categoryTitle">Nom de la catégorie 2</div>
+            <h2 class="categoryTitle">Catégorie 2</h2>
             <div class="containerArrows">
-               <span class="arrowLeft">&#x21e6</span>
-               <span class="arrowRight">&#x21e8</span>
+               <span class="arrowLeft">&#x21e6;</span>
+               <span class="arrowRight">&#x21e8;</span>
                <div class="windowSlider">
-                  <div class="containerImagesSlider" id="containerSliderCategory2">
-                     <img
-                           data-id="574"
-                        src="https://m.media-amazon.com/images/M/MV5BNTY4ZDk5MzYtNjk2Zi00ZWY3LTgwZjUtNDc5MWEzMWFlOTQzXkEyXkFqcGdeQXVyNjU1MTEwMjI@._V1_UY268_CR1,0,182,268_AL_.jpg"
-                        alt="The Story of the Kelly Gang"
-                     />
-                     <img
-                           data-id="1892"
-                        src="https://m.media-amazon.com/images/M/MV5BNWVkNjUyYjUtZGU1Yi00YTM4LTg5ZGEtYmNlNDAzNWRjODM2XkEyXkFqcGdeQXVyMzE0MjY5ODA@._V1_UY268_CR7,0,182,268_AL_.jpg"
-                        alt="Den sorte drøm"
-                     />
-                     <img
-                           data-id="2101"
-                        src="https://m.media-amazon.com/images/M/MV5BZTcyMGU4ZmYtYTVmYS00NWFkLWExM2MtYWRlYTlhOWYxNjYwXkEyXkFqcGdeQXVyMzE0MjY5ODA@._V1_UY268_CR7,0,182,268_AL_.jpg"
-                        alt="Cleopatra"
-                     />
-                     <img
-                           data-id="2130"
-                        src="https://m.media-amazon.com/images/M/MV5BNjU1NDMyNGEtODJkYy00M2Y4LTk5YzItYTYxMzkzZWI1MmJiXkEyXkFqcGdeQXVyMzI5NDcxNzI@._V1_UY268_CR5,0,182,268_AL_.jpg"
-                        alt="L'Inferno"
-                     />
-                     <img
-                           data-id="2199"
-                        src="https://m.media-amazon.com/images/M/MV5BZTQ3MDdkMWEtYjJmMS00YmE3LTgxMDktOWUwZjczMTdhNGQ1XkEyXkFqcGdeQXVyODg3Mjk3Mjc@._V1_UX182_CR0,0,182,268_AL_.jpg"
-                        alt="From the Manger to the Cross; or, Jesus of Nazareth"
-                     />
-                     <img
-                           data-id="2423"
-                        src="https://m.media-amazon.com/images/M/MV5BODIwYTFjYWMtNjZiOC00ZWM0LTkzMTAtOGVjYzE1Y2VlMmZjXkEyXkFqcGdeQXVyMzg1ODEwNQ@@._V1_UY268_CR2,0,182,268_AL_.jpg"
-                        alt="Madame DuBarry"
-                     />
-                     <img
-                           data-id="2445"
-                        src="https://m.media-amazon.com/images/M/MV5BOTkyNjk5NzA4Nl5BMl5BanBnXkFtZTgwMDY1NjkwMjE@._V1_UY268_CR9,0,182,268_AL_.jpg"
-                        alt="Quo Vadis?"
-                     />
+                  <div class="containerImagesSlider" id="containerSliderCategory2"></div>
+                  <div class="containerNoFilm">
+                     <div class="no_film"></div>
+                     <div class="no_film"></div>
+                     <div class="no_film"></div>
+                     <div class="no_film"></div>
+                     <div class="no_film"></div>
+                     <div class="no_film"></div>
+                     <div class="no_film"></div>
+                     <div class="no_film"></div>
                   </div>
                </div>
             </div>
          </section>
          <section class="slider" id="sliderCategory3">
-            <div class="categoryTitle">Nom de la catégorie 3</div>
+            <h2 class="categoryTitle">Catégorie 3</h2>
             <div class="containerArrows">
-               <span class="arrowLeft">&#x21e6</span>
-               <span class="arrowRight">&#x21e8</span>
+               <span class="arrowLeft">&#x21e6;</span>
+               <span class="arrowRight">&#x21e8;</span>
                <div class="windowSlider">
-                  <div class="containerImagesSlider" id="containerSliderCategory3">
-                     <img
-                           data-id="574"
-                        src="https://m.media-amazon.com/images/M/MV5BNTY4ZDk5MzYtNjk2Zi00ZWY3LTgwZjUtNDc5MWEzMWFlOTQzXkEyXkFqcGdeQXVyNjU1MTEwMjI@._V1_UY268_CR1,0,182,268_AL_.jpg"
-                        alt="The Story of the Kelly Gang"
-                     />
-                     <img
-                           data-id="1892"
-                        src="https://m.media-amazon.com/images/M/MV5BNWVkNjUyYjUtZGU1Yi00YTM4LTg5ZGEtYmNlNDAzNWRjODM2XkEyXkFqcGdeQXVyMzE0MjY5ODA@._V1_UY268_CR7,0,182,268_AL_.jpg"
-                        alt="Den sorte drøm"
-                     />
-                     <img
-                           data-id="2101"
-                        src="https://m.media-amazon.com/images/M/MV5BZTcyMGU4ZmYtYTVmYS00NWFkLWExM2MtYWRlYTlhOWYxNjYwXkEyXkFqcGdeQXVyMzE0MjY5ODA@._V1_UY268_CR7,0,182,268_AL_.jpg"
-                        alt="Cleopatra"
-                     />
-                     <img
-                           data-id="2130"
-                        src="https://m.media-amazon.com/images/M/MV5BNjU1NDMyNGEtODJkYy00M2Y4LTk5YzItYTYxMzkzZWI1MmJiXkEyXkFqcGdeQXVyMzI5NDcxNzI@._V1_UY268_CR5,0,182,268_AL_.jpg"
-                        alt="L'Inferno"
-                     />
-                     <img
-                           data-id="2199"
-                        src="https://m.media-amazon.com/images/M/MV5BZTQ3MDdkMWEtYjJmMS00YmE3LTgxMDktOWUwZjczMTdhNGQ1XkEyXkFqcGdeQXVyODg3Mjk3Mjc@._V1_UX182_CR0,0,182,268_AL_.jpg"
-                        alt="From the Manger to the Cross; or, Jesus of Nazareth"
-                     />
-                     <img
-                           data-id="2423"
-                        src="https://m.media-amazon.com/images/M/MV5BODIwYTFjYWMtNjZiOC00ZWM0LTkzMTAtOGVjYzE1Y2VlMmZjXkEyXkFqcGdeQXVyMzg1ODEwNQ@@._V1_UY268_CR2,0,182,268_AL_.jpg"
-                        alt="Madame DuBarry"
-                     />
-                     <img
-                           data-id="2445"
-                        src="https://m.media-amazon.com/images/M/MV5BOTkyNjk5NzA4Nl5BMl5BanBnXkFtZTgwMDY1NjkwMjE@._V1_UY268_CR9,0,182,268_AL_.jpg"
-                        alt="Quo Vadis?"
-                     />
+                  <div class="containerImagesSlider" id="containerSliderCategory3"></div>
+                  <div class="containerNoFilm">
+                     <div class="no_film"></div>
+                     <div class="no_film"></div>
+                     <div class="no_film"></div>
+                     <div class="no_film"></div>
+                     <div class="no_film"></div>
+                     <div class="no_film"></div>
+                     <div class="no_film"></div>
+                     <div class="no_film"></div>
                   </div>
                </div>
             </div>
          </section>
-         <dialog class="modal" id="modal1">
-            <!-- <div class="containerModal">
-               <div class="containerModal0">
-                  <div class="containerModal1">
-                     <div class="containerModal1-1">
-                        <div id="modalTitle">Titre du film</div>
-                        <div id="modalYear">Année de sortie</div>
-                     </div>
-                     <div class="containerModal1-2">
-                        <img
-                           class="modalPicture"
-                           id="574"
-                           src="https://m.media-amazon.com/images/M/MV5BNTY4ZDk5MzYtNjk2Zi00ZWY3LTgwZjUtNDc5MWEzMWFlOTQzXkEyXkFqcGdeQXVyNjU1MTEwMjI@._V1_UY268_CR1,0,182,268_AL_.jpg"
-                           alt="The Story of the Kelly Gang"
-                        />
-                     </div>
-                  </div>
-                  <div class="containerModal2">
-                     <div class="containerModal2-1">
-                        <div id="modalGenres">List[Genre]</div>
-                        <div id="modalDuration">Durée</div>
-                        <div id="modalRating">Rating</div>
-                     </div>
-                     <div id="modalSynopsis">Résumé</div>
-                  </div>
-               </div>
-               <div class="containerModal3">
-                  <div class="containerModal3-1">
-                     <div class="modalDirectors">List[Réalisateur]</div>
-                     <div id="modalActors">List[Acteur]</div>
-                  </div>
-                  <div class="containerModal3-2">
-                     <div id="modalCountry">Pays d'origine</div>
-                     <div class="containerModal3-2-1">
-                        <div id="modalScore">Score</div>
-                        <div id="modalResult">Résultat</div>
-                     </div>
-                  </div>
-               </div>
-               <div id="modalMovieId">Id</div>
-               <button id="modalClose">X</button>
-            </div> -->
-         </dialog>
+         <dialog class="modal" id="modal1"></dialog>
       </main>
       <footer>
-         <div>Pas de Footer.</div>
+         <!-- To be fill -->
       </footer>
-      <script src="../src/script.js"></script>
+      <script type="module" src="../src/script.js"></script>
    </body>
 </html>

@@ -52,5 +52,5 @@ function onsubmit(e) {
       category_3: category_3,
    });
    localStorage.setItem('LS_categories', LS_categories);
-   window.location.href = 'http://localhost:5500/html/index2.html';
+   window.location.href = 'http://localhost:5500/html/index.html';
 }
