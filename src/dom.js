@@ -178,7 +178,11 @@ async function fill_one_image_slider(movie, element_container_slider) {
    current_div.appendChild(element_image);
    const current_img = current_div.lastElementChild;
    current_img.setAttribute('data-id', movie_id);
-   current_img.setAttribute('alt', 'image du film ' + movie_title);
+   if (image_exist == 0) {
+      current_img.setAttribute('alt', 'image du film ' + movie_title);
+   } else {
+      current_img.setAttribute('alt', 'image du film indisponible');
+   }
    current_img.setAttribute('src', image);
 }
 

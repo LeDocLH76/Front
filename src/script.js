@@ -85,7 +85,7 @@ window.addEventListener('resize', (e) => {
       resetDisplayArrowsV();
       const styleStr = node.getAttribute('style');
       const currentTranslate = styleStr.split('transform: translate(')[1].split(')')[0];
-      const currentTranslateX = currentTranslate.split(', ')[0];
+      let currentTranslateX = currentTranslate.split(', ')[0];
       node.style.transform = 'translate(' + currentTranslateX + ', 0px)';
    }
 });
@@ -136,7 +136,11 @@ function onclickRight(e) {
                const transformString = 'translate(0vw, ' + offset.toString() + 'vw)';
                elementSliderBestMovies.querySelector('div.containerImagesSlider').style.transform = transformString;
                elementSliderBestMovies.querySelector('div.containerNoFilm').style.transform = transformString;
-               displayArrowsVBestMovies();
+               displayArrowsV(
+                  elementArrowLeftSliderBestMovies,
+                  elementArrowRightSliderBestMovies,
+                  VpositionSliderBestMovies
+               );
             }
          } else {
             // Not Phone
@@ -146,7 +150,11 @@ function onclickRight(e) {
                const transformString = 'translate(' + offset.toString() + 'vw, 0vw)';
                elementSliderBestMovies.querySelector('div.containerImagesSlider').style.transform = transformString;
                elementSliderBestMovies.querySelector('div.containerNoFilm').style.transform = transformString;
-               displayArrowsHBestMovies();
+               displayArrowsH(
+                  elementArrowLeftSliderBestMovies,
+                  elementArrowRightSliderBestMovies,
+                  HpositionSliderBestMovies
+               );
             }
          }
          break;
@@ -159,7 +167,11 @@ function onclickRight(e) {
                const transformString = 'translate(0vw, ' + offset.toString() + 'vw)';
                elementSliderCategory1.querySelector('div.containerImagesSlider').style.transform = transformString;
                elementSliderCategory1.querySelector('div.containerNoFilm').style.transform = transformString;
-               displayArrowsVCategory1();
+               displayArrowsV(
+                  elementArrowLeftSliderCategory1,
+                  elementArrowRightSliderCategory1,
+                  VpositionSliderCategory1
+               );
             }
          } else {
             // Not Phone
@@ -169,7 +181,11 @@ function onclickRight(e) {
                const transformString = 'translate(' + offset.toString() + 'vw, 0vw)';
                elementSliderCategory1.querySelector('div.containerImagesSlider').style.transform = transformString;
                elementSliderCategory1.querySelector('div.containerNoFilm').style.transform = transformString;
-               displayArrowsHCategory1();
+               displayArrowsH(
+                  elementArrowLeftSliderCategory1,
+                  elementArrowRightSliderCategory1,
+                  HpositionSliderCategory1
+               );
             }
          }
          break;
@@ -182,7 +198,11 @@ function onclickRight(e) {
                const transformString = 'translate(0vw, ' + offset.toString() + 'vw)';
                elementSliderCategory2.querySelector('div.containerImagesSlider').style.transform = transformString;
                elementSliderCategory2.querySelector('div.containerNoFilm').style.transform = transformString;
-               displayArrowsVCategory2();
+               displayArrowsV(
+                  elementArrowLeftSliderCategory2,
+                  elementArrowRightSliderCategory2,
+                  VpositionSliderCategory2
+               );
             }
          } else {
             // Not Phone
@@ -192,7 +212,11 @@ function onclickRight(e) {
                const transformString = 'translate(' + offset.toString() + 'vw, 0vw)';
                elementSliderCategory2.querySelector('div.containerImagesSlider').style.transform = transformString;
                elementSliderCategory2.querySelector('div.containerNoFilm').style.transform = transformString;
-               displayArrowsHCategory2();
+               displayArrowsH(
+                  elementArrowLeftSliderCategory2,
+                  elementArrowRightSliderCategory2,
+                  HpositionSliderCategory2
+               );
             }
          }
          break;
@@ -205,7 +229,11 @@ function onclickRight(e) {
                const transformString = 'translate(0vw, ' + offset.toString() + 'vw)';
                elementSliderCategory3.querySelector('div.containerImagesSlider').style.transform = transformString;
                elementSliderCategory3.querySelector('div.containerNoFilm').style.transform = transformString;
-               displayArrowsVCategory3();
+               displayArrowsV(
+                  elementArrowLeftSliderCategory3,
+                  elementArrowRightSliderCategory3,
+                  VpositionSliderCategory3
+               );
             }
          } else {
             // Not Phone
@@ -215,7 +243,11 @@ function onclickRight(e) {
                const transformString = 'translate(' + offset.toString() + 'vw, 0vw)';
                elementSliderCategory3.querySelector('div.containerImagesSlider').style.transform = transformString;
                elementSliderCategory3.querySelector('div.containerNoFilm').style.transform = transformString;
-               displayArrowsHCategory3();
+               displayArrowsH(
+                  elementArrowLeftSliderCategory3,
+                  elementArrowRightSliderCategory3,
+                  HpositionSliderCategory3
+               );
             }
          }
          break;
@@ -246,7 +278,11 @@ function onclickLeft(e) {
                const transformString = 'translate(0vw, ' + offset.toString() + 'vw)';
                elementSliderBestMovies.querySelector('div.containerImagesSlider').style.transform = transformString;
                elementSliderBestMovies.querySelector('div.containerNoFilm').style.transform = transformString;
-               displayArrowsVBestMovies();
+               displayArrowsV(
+                  elementArrowLeftSliderBestMovies,
+                  elementArrowRightSliderBestMovies,
+                  VpositionSliderBestMovies
+               );
             }
          } else {
             // Not Phone
@@ -256,7 +292,11 @@ function onclickLeft(e) {
                const transformString = 'translate(' + offset.toString() + 'vw, 0vw)';
                elementSliderBestMovies.querySelector('div.containerImagesSlider').style.transform = transformString;
                elementSliderBestMovies.querySelector('div.containerNoFilm').style.transform = transformString;
-               displayArrowsHBestMovies();
+               displayArrowsH(
+                  elementArrowLeftSliderBestMovies,
+                  elementArrowRightSliderBestMovies,
+                  HpositionSliderBestMovies
+               );
             }
          }
          break;
@@ -269,7 +309,11 @@ function onclickLeft(e) {
                const transformString = 'translate(0vw, ' + offset.toString() + 'vw)';
                elementSliderCategory1.querySelector('div.containerImagesSlider').style.transform = transformString;
                elementSliderCategory1.querySelector('div.containerNoFilm').style.transform = transformString;
-               displayArrowsVCategory1();
+               displayArrowsV(
+                  elementArrowLeftSliderCategory1,
+                  elementArrowRightSliderCategory1,
+                  VpositionSliderCategory1
+               );
             }
          } else {
             // Not Phone
@@ -279,7 +323,11 @@ function onclickLeft(e) {
                const transformString = 'translate(' + offset.toString() + 'vw, 0vw)';
                elementSliderCategory1.querySelector('div.containerImagesSlider').style.transform = transformString;
                elementSliderCategory1.querySelector('div.containerNoFilm').style.transform = transformString;
-               displayArrowsHCategory1();
+               displayArrowsH(
+                  elementArrowLeftSliderCategory1,
+                  elementArrowRightSliderCategory1,
+                  HpositionSliderCategory1
+               );
             }
          }
          break;
@@ -292,7 +340,11 @@ function onclickLeft(e) {
                const transformString = 'translate(0vw, ' + offset.toString() + 'vw)';
                elementSliderCategory2.querySelector('div.containerImagesSlider').style.transform = transformString;
                elementSliderCategory2.querySelector('div.containerNoFilm').style.transform = transformString;
-               displayArrowsVCategory2();
+               displayArrowsV(
+                  elementArrowLeftSliderCategory2,
+                  elementArrowRightSliderCategory2,
+                  VpositionSliderCategory2
+               );
             }
          } else {
             // Not Phone
@@ -302,7 +354,11 @@ function onclickLeft(e) {
                const transformString = 'translate(' + offset.toString() + 'vw, 0vw)';
                elementSliderCategory2.querySelector('div.containerImagesSlider').style.transform = transformString;
                elementSliderCategory2.querySelector('div.containerNoFilm').style.transform = transformString;
-               displayArrowsHCategory2();
+               displayArrowsH(
+                  elementArrowLeftSliderCategory2,
+                  elementArrowRightSliderCategory2,
+                  HpositionSliderCategory2
+               );
             }
          }
          break;
@@ -315,7 +371,11 @@ function onclickLeft(e) {
                const transformString = 'translate(0vw, ' + offset.toString() + 'vw)';
                elementSliderCategory3.querySelector('div.containerImagesSlider').style.transform = transformString;
                elementSliderCategory3.querySelector('div.containerNoFilm').style.transform = transformString;
-               displayArrowsVCategory3();
+               displayArrowsV(
+                  elementArrowLeftSliderCategory3,
+                  elementArrowRightSliderCategory3,
+                  VpositionSliderCategory3
+               );
             }
          } else {
             // Not Phone
@@ -325,7 +385,11 @@ function onclickLeft(e) {
                const transformString = 'translate(' + offset.toString() + 'vw, 0vw)';
                elementSliderCategory3.querySelector('div.containerImagesSlider').style.transform = transformString;
                elementSliderCategory3.querySelector('div.containerNoFilm').style.transform = transformString;
-               displayArrowsHCategory3();
+               displayArrowsH(
+                  elementArrowLeftSliderCategory3,
+                  elementArrowRightSliderCategory3,
+                  HpositionSliderCategory3
+               );
             }
          }
          break;
@@ -350,89 +414,35 @@ function displayModal(elementModal, modalContent) {
 }
 
 function resetDisplayArrowsH() {
-   displayArrowsHBestMovies();
-   displayArrowsHCategory1();
-   displayArrowsHCategory2();
-   displayArrowsHCategory3();
+   displayArrowsH(elementArrowLeftSliderBestMovies, elementArrowRightSliderBestMovies, HpositionSliderBestMovies);
+   displayArrowsH(elementArrowLeftSliderCategory1, elementArrowRightSliderCategory1, HpositionSliderCategory1);
+   displayArrowsH(elementArrowLeftSliderCategory2, elementArrowRightSliderCategory2, HpositionSliderCategory2);
+   displayArrowsH(elementArrowLeftSliderCategory3, elementArrowRightSliderCategory3, HpositionSliderCategory3);
 }
 
 function resetDisplayArrowsV() {
-   displayArrowsVBestMovies();
-   displayArrowsVCategory1();
-   displayArrowsVCategory2();
-   displayArrowsVCategory3();
+   displayArrowsV(elementArrowLeftSliderBestMovies, elementArrowRightSliderBestMovies, VpositionSliderBestMovies);
+   displayArrowsV(elementArrowLeftSliderCategory1, elementArrowRightSliderCategory1, VpositionSliderCategory1);
+   displayArrowsV(elementArrowLeftSliderCategory2, elementArrowRightSliderCategory2, VpositionSliderCategory2);
+   displayArrowsV(elementArrowLeftSliderCategory3, elementArrowRightSliderCategory3, VpositionSliderCategory3);
 }
 
-function displayArrowsHBestMovies() {
-   HpositionSliderBestMovies <= HpositionslidersMax
-      ? (elementArrowRightSliderBestMovies.style.display = 'block')
-      : (elementArrowRightSliderBestMovies.style.display = 'none');
-   HpositionSliderBestMovies > 0
-      ? (elementArrowLeftSliderBestMovies.style.display = 'block')
-      : (elementArrowLeftSliderBestMovies.style.display = 'none');
+function displayArrowsH(elementArrowLeftSlider, elementArrowRightSlider, HpositionSlider) {
+   HpositionSlider <= HpositionslidersMax
+      ? (elementArrowRightSlider.style.display = 'block')
+      : (elementArrowRightSlider.style.display = 'none');
+   HpositionSlider > 0
+      ? (elementArrowLeftSlider.style.display = 'block')
+      : (elementArrowLeftSlider.style.display = 'none');
 }
 
-function displayArrowsVBestMovies() {
-   VpositionSliderBestMovies <= VpositionslidersMax
-      ? (elementArrowRightSliderBestMovies.style.display = 'block')
-      : (elementArrowRightSliderBestMovies.style.display = 'none');
-   VpositionSliderBestMovies > 0
-      ? (elementArrowLeftSliderBestMovies.style.display = 'block')
-      : (elementArrowLeftSliderBestMovies.style.display = 'none');
-}
-
-function displayArrowsHCategory1() {
-   HpositionSliderCategory1 <= HpositionslidersMax
-      ? (elementArrowRightSliderCategory1.style.display = 'block')
-      : (elementArrowRightSliderCategory1.style.display = 'none');
-   HpositionSliderCategory1 > 0
-      ? (elementArrowLeftSliderCategory1.style.display = 'block')
-      : (elementArrowLeftSliderCategory1.style.display = 'none');
-}
-
-function displayArrowsVCategory1() {
-   VpositionSliderCategory1 <= VpositionslidersMax
-      ? (elementArrowRightSliderCategory1.style.display = 'block')
-      : (elementArrowRightSliderCategory1.style.display = 'none');
-   VpositionSliderCategory1 > 0
-      ? (elementArrowLeftSliderCategory1.style.display = 'block')
-      : (elementArrowLeftSliderCategory1.style.display = 'none');
-}
-
-function displayArrowsHCategory2() {
-   HpositionSliderCategory2 <= HpositionslidersMax
-      ? (elementArrowRightSliderCategory2.style.display = 'block')
-      : (elementArrowRightSliderCategory2.style.display = 'none');
-   HpositionSliderCategory2 > 0
-      ? (elementArrowLeftSliderCategory2.style.display = 'block')
-      : (elementArrowLeftSliderCategory2.style.display = 'none');
-}
-
-function displayArrowsVCategory2() {
-   VpositionSliderCategory2 <= VpositionslidersMax
-      ? (elementArrowRightSliderCategory2.style.display = 'block')
-      : (elementArrowRightSliderCategory2.style.display = 'none');
-   VpositionSliderCategory2 > 0
-      ? (elementArrowLeftSliderCategory2.style.display = 'block')
-      : (elementArrowLeftSliderCategory2.style.display = 'none');
-}
-
-function displayArrowsHCategory3() {
-   HpositionSliderCategory3 <= HpositionslidersMax
-      ? (elementArrowRightSliderCategory3.style.display = 'block')
-      : (elementArrowRightSliderCategory3.style.display = 'none');
-   HpositionSliderCategory3 > 0
-      ? (elementArrowLeftSliderCategory3.style.display = 'block')
-      : (elementArrowLeftSliderCategory3.style.display = 'none');
-}
-
-function displayArrowsVCategory3() {
-   VpositionSliderCategory3 <= VpositionslidersMax
-      ? (elementArrowRightSliderCategory3.style.display = 'block')
-      : (elementArrowRightSliderCategory3.style.display = 'none');
-   VpositionSliderCategory3 > 0
-      ? (elementArrowLeftSliderCategory3.style.display = 'block')
-      : (elementArrowLeftSliderCategory3.style.display = 'none');
+function displayArrowsV(elementArrowLeftSlider, elementArrowRightSlider, VpositionSlider) {
+   VpositionSlider <= VpositionslidersMax
+      ? (elementArrowRightSlider.style.display = 'block')
+      : (elementArrowRightSlider.style.display = 'none');
+   VpositionSlider > 0
+      ? (elementArrowLeftSlider.style.display = 'block')
+      : (elementArrowLeftSlider.style.display = 'none');
 }
 
 function resetVpositionSliders() {
