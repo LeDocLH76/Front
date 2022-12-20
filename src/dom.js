@@ -19,7 +19,6 @@ export async function fill_dom(LS_categories_obj) {
 
 export async function makeModal1(movie_id) {
    const movie_data = await find_one_movie_by_id(movie_id);
-   // console.log(movie_data);
    const image_exist = await getImage(movie_data.image_url);
    const image = image_exist == 0 ? movie_data.image_url : '../pictures/image-indisponible.jpg';
    const rated = isNaN(parseInt(movie_data.rated, 10)) ? 'Inconnu' : movie_data.rated;
@@ -100,17 +99,14 @@ function fill_title_sliders(category_1, category_2, category_3) {
       .querySelector('section#sliderBestMovies')
       .querySelector('h2.categoryTitle');
    elementSliderBestMoviesTitle.innerHTML = 'Films les mieux notés';
-
    const elementSliderCategory1Title = document
       .querySelector('section#sliderCategory1')
       .querySelector('h2.categoryTitle');
    elementSliderCategory1Title.innerHTML = `Categorie ${category_1}`;
-
    const elementSliderCategory2Title = document
       .querySelector('section#sliderCategory2')
       .querySelector('h2.categoryTitle');
    elementSliderCategory2Title.innerHTML = `Categorie ${category_2}`;
-
    const elementSliderCategory3Title = document
       .querySelector('section#sliderCategory3')
       .querySelector('h2.categoryTitle');
@@ -120,24 +116,19 @@ function fill_title_sliders(category_1, category_2, category_3) {
 async function fill_best_movie_and_slider(best_movies_data) {
    const best_movie = best_movies_data[0];
    const best_movies_slider = best_movies_data.slice(1);
-   // console.log(best_movie);
-   // console.log(best_movies_slider);
    // -----------------------
    // fill best movie section
    // -----------------------
    const movie_id = best_movie.id;
    const movie_title = best_movie.title;
    const image = best_movie.image_url ? best_movie.image_url : '../pictures/image-indisponible.jpg';
-
    const best_movie_data = await find_one_movie_by_id(movie_id);
    const best_movie_description = best_movie_data.description;
-
    const movie_bloc_image = `<img
       data-id=${movie_id.toString()}
       src=${image}
       alt="image du film ${movie_title}"
       />`;
-
    const element_best_movie_title = document.querySelector('h2#BestMovieTitle');
    element_best_movie_title.innerHTML = movie_title;
    const element_best_movie_bloc_image = document.querySelector('div#containerBestMovieImage');
@@ -156,7 +147,6 @@ async function fill_best_movie_and_slider(best_movies_data) {
 }
 
 async function fill_category_slider(movies_data, index) {
-   // console.log(movies_data, index);
    let element_container_slider;
    switch (index) {
       case 0:
@@ -169,7 +159,6 @@ async function fill_category_slider(movies_data, index) {
          element_container_slider = document.querySelector('div#containerSliderCategory3');
          break;
    }
-   // console.log(element_container_slider);
    for (let index = 0; index < movies_data.length; index++) {
       const movie = movies_data[index];
       await fill_one_image_slider(movie, element_container_slider);
@@ -177,15 +166,12 @@ async function fill_category_slider(movies_data, index) {
 }
 
 async function fill_one_image_slider(movie, element_container_slider) {
-   // console.log(movie);
    const movie_id = movie.id;
    const movie_title = movie.title;
    const image_exist = await getImage(movie.image_url);
    const image = image_exist == 0 ? movie.image_url : '../pictures/image-indisponible.jpg';
-
    const element_div = document.createElement('div');
    const element_image = document.createElement('img');
-
    element_container_slider.appendChild(element_div);
    const current_div = element_container_slider.lastElementChild;
    current_div.setAttribute('class', 'containerImage');

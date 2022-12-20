@@ -1,15 +1,12 @@
 import { getCategories } from './api.js';
 import { getLocalStorage } from './dom.js';
 
-console.log('Chargement');
 const LS_categories_obj = getLocalStorage();
 const categories = await getCategories();
-
 const elementButton = document.getElementById('submit');
 const elementCategory_1 = document.getElementById('category_1');
 const elementCategory_2 = document.getElementById('category_2');
 const elementCategory_3 = document.getElementById('category_3');
-
 elementButton.addEventListener('click', (e) => onsubmit(e));
 
 for (const category of categories) {

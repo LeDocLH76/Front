@@ -42,7 +42,7 @@ const elementArrowLeftSliderCategory3 = elementSliderCategory3.getElementsByClas
 
 window.addEventListener('resize', (e) => {
    if (e.currentTarget.innerWidth <= MediaQueryForPhone) {
-      // console.log('Téléphone', e.currentTarget.innerWidth);
+      // Phone
       // translateY = current
       // translateX = 0
       elementsContainerImageSlider.forEach(function (node) {
@@ -56,7 +56,7 @@ window.addEventListener('resize', (e) => {
          }
       });
    } else {
-      // console.log('Pas téléphone', e.currentTarget.innerWidth);
+      // Not phone
       // translateY = 0
       // translateX = current
       elementsContainerImageSlider.forEach(function (node) {
@@ -69,12 +69,6 @@ window.addEventListener('resize', (e) => {
             resetTranslateX(node);
          }
       });
-
-      if (window.innerWidth <= MediaQueryForPhone) {
-         // console.log('Téléphone');
-      } else {
-         // console.log('Pas téléphone');
-      }
    }
 
    function resetTranslateY(node) {
@@ -82,11 +76,8 @@ window.addEventListener('resize', (e) => {
       resetDisplayArrowsH();
       const styleStr = node.getAttribute('style');
       const currentTranslate = styleStr.split('transform: translate(')[1].split(')')[0];
-      // console.log('currentTranslate', currentTranslate);
       const currentTranslateY = currentTranslate.split(', ')[1];
-      // console.log('currentTranslateY', currentTranslateY);
       node.style.transform = 'translate(0px, ' + currentTranslateY + ')';
-      // console.log(node.getAttribute('style'));
    }
 
    function resetTranslateX(node) {
@@ -94,11 +85,8 @@ window.addEventListener('resize', (e) => {
       resetDisplayArrowsV();
       const styleStr = node.getAttribute('style');
       const currentTranslate = styleStr.split('transform: translate(')[1].split(')')[0];
-      // console.log('currentTranslate', currentTranslate);
       const currentTranslateX = currentTranslate.split(', ')[0];
-      // console.log('currentTranslateX', currentTranslateX);
       node.style.transform = 'translate(' + currentTranslateX + ', 0px)';
-      // console.log(node.getAttribute('style'));
    }
 });
 
@@ -109,7 +97,6 @@ elementsSliders.forEach(function (node) {
    node.querySelector('span.arrowLeft').addEventListener('click', (e) => onclickLeft(e));
    node.querySelector('span.arrowRight').addEventListener('click', (e) => onclickRight(e));
    const elementPicture = node.querySelectorAll('img');
-   // console.log(node);
    elementPicture.forEach(function (node) {
       node.addEventListener('click', (e) => onClickPicture(e));
    });
@@ -122,13 +109,12 @@ function onClickMyButton(e) {
 }
 
 function onclickRight(e) {
-   console.log('Click droit');
    if (window.innerWidth <= MediaQueryForPhone) {
       resetHpositionSliders();
-      // console.log('Téléphone');
+      // Phone
    } else {
       resetVpositionSliders();
-      // console.log('Pas téléphone');
+      // Not phone
    }
    if (window.innerWidth > MediaQueryForPhone && window.innerWidth <= MediaQueryForTablet) {
       HpositionslidersMax = 3;
@@ -138,7 +124,6 @@ function onclickRight(e) {
    const slider_id = e.target.parentElement.parentElement.id;
    switch (slider_id) {
       case 'sliderBestMovies':
-         console.log('elementArrowRightSliderBestMovies = ', elementArrowRightSliderBestMovies);
          if (window.innerWidth <= MediaQueryForPhone) {
             // Phone
             if (VpositionSliderBestMovies <= VpositionslidersMax) {
@@ -152,7 +137,6 @@ function onclickRight(e) {
          } else {
             // Not Phone
             if (HpositionSliderBestMovies <= HpositionslidersMax) {
-               // elementArrowRightSliderBestMovies.style.display = 'block';
                HpositionSliderBestMovies++;
                const offset = HpositionSliderBestMovies * -L_Image;
                const transformString = 'translate(' + offset.toString() + 'vw, 0vw)';
@@ -235,13 +219,12 @@ function onclickRight(e) {
 }
 
 function onclickLeft(e) {
-   console.log('Click gauche');
    if (window.innerWidth <= MediaQueryForPhone) {
       resetHpositionSliders();
-      // console.log('Téléphone');
+      // Phone
    } else {
       resetVpositionSliders();
-      // console.log('Pas téléphone');
+      // Not phone
    }
    if (window.innerWidth > MediaQueryForPhone && window.innerWidth <= MediaQueryForTablet) {
       HpositionslidersMax = 3;
