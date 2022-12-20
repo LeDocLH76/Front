@@ -14,10 +14,10 @@ let VpositionSliderCategory1 = 0;
 let VpositionSliderCategory2 = 0;
 let VpositionSliderCategory3 = 0;
 const VpositionslidersMax = 2;
-// 20 for desktop. could be change to 26.66 for tablet in onclick... function
-let L_Image_decktop = 20;
+// For translate desktop and tablet
+const L_Image_desktop = 20;
 const L_Image_Tablet = 26.66;
-// For phone
+// For translate phone
 const H_Image = 58;
 
 const MediaQueryForPhone = 600;
@@ -26,7 +26,6 @@ const elementBestMovieButton = document.getElementById('BestMovieButton');
 const elementBestMovieImage = document.getElementById('containerBestMovieImage');
 const elementsSliders = document.querySelectorAll('section.slider');
 const elementsContainerImageSlider = document.querySelectorAll('div.containerImagesSlider');
-const elementsContainernoFilm = document.querySelectorAll('div.containerNoFilm');
 const elementSliderBestMovies = document.querySelector('section#sliderBestMovies');
 const elementSliderCategory1 = document.querySelector('section#sliderCategory1');
 const elementSliderCategory2 = document.querySelector('section#sliderCategory2');
@@ -86,7 +85,7 @@ window.addEventListener('resize', (e) => {
          const currentTranslateX =
             window.innerWidth <= MediaQueryForTablet
                ? currentPositionSlider * -L_Image_Tablet
-               : currentPositionSlider * -L_Image_decktop;
+               : currentPositionSlider * -L_Image_desktop;
          resetVpositionSliders();
          resetDisplayArrowsH();
          node.style.transform = 'translate(' + currentTranslateX + 'vw, 0px)';
@@ -97,7 +96,6 @@ window.addEventListener('resize', (e) => {
 
 elementBestMovieButton.addEventListener('click', (e) => onClickMyButton(e));
 elementBestMovieImage.addEventListener('click', (e) => onClickPicture(e));
-
 elementsSliders.forEach(function (node) {
    node.querySelector('span.arrowLeft').addEventListener('click', (e) => onclickLeft(e));
    node.querySelector('span.arrowRight').addEventListener('click', (e) => onclickRight(e));
@@ -129,7 +127,7 @@ function onclickRight(e) {
    } else {
       // Desktop or phone
       HpositionslidersMax = 2;
-      L_Image = L_Image_decktop;
+      L_Image = L_Image_desktop;
    }
    const slider_id = e.target.parentElement.parentElement.id;
    switch (slider_id) {
@@ -274,7 +272,7 @@ function onclickLeft(e) {
       L_Image = L_Image_Tablet;
    } else {
       HpositionslidersMax = 2;
-      L_Image = L_Image_decktop;
+      L_Image = L_Image_desktop;
    }
    const slider_id = e.target.parentElement.parentElement.id;
    switch (slider_id) {
