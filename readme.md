@@ -5,7 +5,7 @@ To use this frontend project you need to clone and install the backend part at h
 Read readme file and init backend.
 
 Clone this project in a new directory where you want.
-Go to this directory and run npm init
-Run the backend server like explained in the repo
-Open a new terminal and go to the frontend directory
-Run frontend with: npm start
+Go to this directory and run npm init.
+Run the backend server like explained in the repo.
+Open a new terminal and go to the frontend directory.
+Run frontend with: npm start.
