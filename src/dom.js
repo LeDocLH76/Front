@@ -1,7 +1,6 @@
 import { find_one_movie_by_id, find_best_movie_data } from './api.js';
 
 export async function fill_dom(LS_categories_obj) {
-   console.log('Avant');
    let category_array = [];
    const best_movies_data = await find_best_movie_data(9);
    await fill_best_movie_and_slider(best_movies_data);
@@ -14,7 +13,6 @@ export async function fill_dom(LS_categories_obj) {
       let movies_data = await find_best_movie_data(8, category);
       await fill_category_slider(movies_data, index);
    }
-   console.log('A la fin');
 }
 
 export async function makeModal1(movie_id) {
