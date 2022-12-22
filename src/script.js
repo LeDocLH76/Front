@@ -112,168 +112,63 @@ function onClickMyButton(e) {
 }
 
 function onclickRight(e) {
-   if (window.innerWidth <= MediaQueryForPhone) {
-      resetHpositionSliders();
-      // Phone
-   } else {
-      resetVpositionSliders();
-      // Not phone
-   }
-   let L_Image = 0;
-   if (window.innerWidth > MediaQueryForPhone && window.innerWidth <= MediaQueryForTablet) {
-      // Tablet
-      HpositionslidersMax = 3;
-      L_Image = L_Image_Tablet;
-   } else {
-      // Desktop or phone
-      HpositionslidersMax = 2;
-      L_Image = L_Image_desktop;
-   }
+   let L_Image = onclickPositionsResets();
    const slider_id = e.target.parentElement.parentElement.id;
+   let positions = [];
    switch (slider_id) {
       case 'sliderBestMovies':
-         if (window.innerWidth <= MediaQueryForPhone) {
-            // Phone
-            if (VpositionSliderBestMovies <= VpositionslidersMax) {
-               VpositionSliderBestMovies++;
-               const offset = VpositionSliderBestMovies * -H_Image;
-               const transformString = 'translate(0vw, ' + offset.toString() + 'vw)';
-               elementSliderBestMovies.querySelector('div.containerImagesSlider').style.transform = transformString;
-               elementSliderBestMovies.querySelector('div.containerNoFilm').style.transform = transformString;
-               displayArrowsV(
-                  elementArrowLeftSliderBestMovies,
-                  elementArrowRightSliderBestMovies,
-                  VpositionSliderBestMovies
-               );
-            }
-         } else {
-            // Not Phone
-            if (HpositionSliderBestMovies <= HpositionslidersMax) {
-               HpositionSliderBestMovies++;
-               const offset = HpositionSliderBestMovies * -L_Image;
-               const transformString = 'translate(' + offset.toString() + 'vw, 0vw)';
-               elementSliderBestMovies.querySelector('div.containerImagesSlider').style.transform = transformString;
-               elementSliderBestMovies.querySelector('div.containerNoFilm').style.transform = transformString;
-               displayArrowsH(
-                  elementArrowLeftSliderBestMovies,
-                  elementArrowRightSliderBestMovies,
-                  HpositionSliderBestMovies
-               );
-            }
-         }
+         positions = translateLeftOrTop(
+            HpositionSliderBestMovies,
+            VpositionSliderBestMovies,
+            elementSliderBestMovies,
+            elementArrowLeftSliderBestMovies,
+            elementArrowRightSliderBestMovies,
+            L_Image
+         );
+         HpositionSliderBestMovies = positions[0];
+         VpositionSliderBestMovies = positions[1];
          break;
       case 'sliderCategory1':
-         if (window.innerWidth <= MediaQueryForPhone) {
-            // Phone
-            if (VpositionSliderCategory1 <= VpositionslidersMax) {
-               VpositionSliderCategory1++;
-               const offset = VpositionSliderCategory1 * -H_Image;
-               const transformString = 'translate(0vw, ' + offset.toString() + 'vw)';
-               elementSliderCategory1.querySelector('div.containerImagesSlider').style.transform = transformString;
-               elementSliderCategory1.querySelector('div.containerNoFilm').style.transform = transformString;
-               displayArrowsV(
-                  elementArrowLeftSliderCategory1,
-                  elementArrowRightSliderCategory1,
-                  VpositionSliderCategory1
-               );
-            }
-         } else {
-            // Not Phone
-            if (HpositionSliderCategory1 <= HpositionslidersMax) {
-               HpositionSliderCategory1++;
-               const offset = HpositionSliderCategory1 * -L_Image;
-               const transformString = 'translate(' + offset.toString() + 'vw, 0vw)';
-               elementSliderCategory1.querySelector('div.containerImagesSlider').style.transform = transformString;
-               elementSliderCategory1.querySelector('div.containerNoFilm').style.transform = transformString;
-               displayArrowsH(
-                  elementArrowLeftSliderCategory1,
-                  elementArrowRightSliderCategory1,
-                  HpositionSliderCategory1
-               );
-            }
-         }
+         positions = translateLeftOrTop(
+            HpositionSliderCategory1,
+            VpositionSliderCategory1,
+            elementSliderCategory1,
+            elementArrowLeftSliderCategory1,
+            elementArrowRightSliderCategory1,
+            L_Image
+         );
+         HpositionSliderCategory1 = positions[0];
+         VpositionSliderCategory1 = positions[1];
          break;
       case 'sliderCategory2':
-         if (window.innerWidth <= MediaQueryForPhone) {
-            // Phone
-            if (VpositionSliderCategory2 <= VpositionslidersMax) {
-               VpositionSliderCategory2++;
-               const offset = VpositionSliderCategory2 * -H_Image;
-               const transformString = 'translate(0vw, ' + offset.toString() + 'vw)';
-               elementSliderCategory2.querySelector('div.containerImagesSlider').style.transform = transformString;
-               elementSliderCategory2.querySelector('div.containerNoFilm').style.transform = transformString;
-               displayArrowsV(
-                  elementArrowLeftSliderCategory2,
-                  elementArrowRightSliderCategory2,
-                  VpositionSliderCategory2
-               );
-            }
-         } else {
-            // Not Phone
-            if (HpositionSliderCategory2 <= HpositionslidersMax) {
-               HpositionSliderCategory2++;
-               const offset = HpositionSliderCategory2 * -L_Image;
-               const transformString = 'translate(' + offset.toString() + 'vw, 0vw)';
-               elementSliderCategory2.querySelector('div.containerImagesSlider').style.transform = transformString;
-               elementSliderCategory2.querySelector('div.containerNoFilm').style.transform = transformString;
-               displayArrowsH(
-                  elementArrowLeftSliderCategory2,
-                  elementArrowRightSliderCategory2,
-                  HpositionSliderCategory2
-               );
-            }
-         }
+         positions = translateLeftOrTop(
+            HpositionSliderCategory2,
+            VpositionSliderCategory2,
+            elementSliderCategory2,
+            elementArrowLeftSliderCategory2,
+            elementArrowRightSliderCategory2,
+            L_Image
+         );
+         HpositionSliderCategory2 = positions[0];
+         VpositionSliderCategory2 = positions[1];
          break;
       case 'sliderCategory3':
-         if (window.innerWidth <= MediaQueryForPhone) {
-            // Phone
-            if (VpositionSliderCategory3 <= VpositionslidersMax) {
-               VpositionSliderCategory3++;
-               const offset = VpositionSliderCategory3 * -H_Image;
-               const transformString = 'translate(0vw, ' + offset.toString() + 'vw)';
-               elementSliderCategory3.querySelector('div.containerImagesSlider').style.transform = transformString;
-               elementSliderCategory3.querySelector('div.containerNoFilm').style.transform = transformString;
-               displayArrowsV(
-                  elementArrowLeftSliderCategory3,
-                  elementArrowRightSliderCategory3,
-                  VpositionSliderCategory3
-               );
-            }
-         } else {
-            // Not Phone
-            if (HpositionSliderCategory3 <= HpositionslidersMax) {
-               HpositionSliderCategory3++;
-               const offset = HpositionSliderCategory3 * -L_Image;
-               const transformString = 'translate(' + offset.toString() + 'vw, 0vw)';
-               elementSliderCategory3.querySelector('div.containerImagesSlider').style.transform = transformString;
-               elementSliderCategory3.querySelector('div.containerNoFilm').style.transform = transformString;
-               displayArrowsH(
-                  elementArrowLeftSliderCategory3,
-                  elementArrowRightSliderCategory3,
-                  HpositionSliderCategory3
-               );
-            }
-         }
+         positions = translateLeftOrTop(
+            HpositionSliderCategory3,
+            VpositionSliderCategory3,
+            elementSliderCategory3,
+            elementArrowLeftSliderCategory3,
+            elementArrowRightSliderCategory3,
+            L_Image
+         );
+         HpositionSliderCategory3 = positions[0];
+         VpositionSliderCategory3 = positions[1];
          break;
    }
 }
 
 function onclickLeft(e) {
-   if (window.innerWidth <= MediaQueryForPhone) {
-      resetHpositionSliders();
-      // Phone
-   } else {
-      resetVpositionSliders();
-      // Not phone
-   }
-   let L_Image = 0;
-   if (window.innerWidth > MediaQueryForPhone && window.innerWidth <= MediaQueryForTablet) {
-      HpositionslidersMax = 3;
-      L_Image = L_Image_Tablet;
-   } else {
-      HpositionslidersMax = 2;
-      L_Image = L_Image_desktop;
-   }
+   let L_Image = onclickPositionsResets();
    const slider_id = e.target.parentElement.parentElement.id;
    switch (slider_id) {
       case 'sliderBestMovies':
@@ -401,6 +296,57 @@ function onclickLeft(e) {
          }
          break;
    }
+}
+
+function translateLeftOrTop(
+   HpositionSlider,
+   VpositionSlider,
+   elementSlider,
+   elementArrowLeftSlider,
+   elementArrowRightSlider,
+   L_Image
+) {
+   if (window.innerWidth <= MediaQueryForPhone) {
+      // Phone
+      if (VpositionSlider <= VpositionslidersMax) {
+         VpositionSlider++;
+         const offset = VpositionSlider * -H_Image;
+         const transformString = 'translate(0vw, ' + offset.toString() + 'vw)';
+         elementSlider.querySelector('div.containerImagesSlider').style.transform = transformString;
+         elementSlider.querySelector('div.containerNoFilm').style.transform = transformString;
+         displayArrowsV(elementArrowLeftSlider, elementArrowRightSlider, VpositionSlider);
+      }
+   } else {
+      // Not Phone
+      if (HpositionSlider <= HpositionslidersMax) {
+         HpositionSlider++;
+         const offset = HpositionSlider * -L_Image;
+         const transformString = 'translate(' + offset.toString() + 'vw, 0vw)';
+         elementSlider.querySelector('div.containerImagesSlider').style.transform = transformString;
+         elementSlider.querySelector('div.containerNoFilm').style.transform = transformString;
+         displayArrowsH(elementArrowLeftSlider, elementArrowRightSlider, HpositionSlider);
+      }
+   }
+   return [HpositionSlider, VpositionSlider];
+}
+
+function onclickPositionsResets() {
+   if (window.innerWidth <= MediaQueryForPhone) {
+      resetHpositionSliders();
+      // Phone
+   } else {
+      resetVpositionSliders();
+      // Not phone
+   }
+   let L_Image = 0;
+   if (window.innerWidth > MediaQueryForPhone && window.innerWidth <= MediaQueryForTablet) {
+      HpositionslidersMax = 3;
+      L_Image = L_Image_Tablet;
+   } else {
+      HpositionslidersMax = 2;
+      L_Image = L_Image_desktop;
+   }
+   return L_Image;
 }
 
 async function onClickPicture(e) {
