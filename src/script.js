@@ -223,6 +223,14 @@ function onclickLeft(e) {
    }
 }
 
+async function onClickPicture(e) {
+   const elementModal = document.getElementById('modal1');
+   const movie_id = e.target.dataset.id;
+   console.log(e.target.dataset.id);
+   const modalContent = await makeModal1(movie_id);
+   displayModal(elementModal, modalContent);
+}
+
 function translateLeftOrTop(
    HpositionSlider,
    VpositionSlider,
@@ -305,14 +313,6 @@ function onclickPositionsResets() {
       L_Image = L_Image_desktop;
    }
    return L_Image;
-}
-
-async function onClickPicture(e) {
-   const elementModal = document.getElementById('modal1');
-   const movie_id = e.target.dataset.id;
-   console.log(e.target.dataset.id);
-   const modalContent = await makeModal1(movie_id);
-   displayModal(elementModal, modalContent);
 }
 
 function displayModal(elementModal, modalContent) {
