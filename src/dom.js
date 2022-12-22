@@ -82,9 +82,9 @@ export function getLocalStorage() {
       LS_categories_obj = JSON.parse(localStorage.getItem('LS_categories'));
    } else {
       const LS_categories = JSON.stringify({
-         category_1: 'Action',
-         category_2: 'Animation',
-         category_3: 'Fantasy',
+         category_1: 'Biography',
+         category_2: 'Documentary',
+         category_3: 'Western',
       });
       localStorage.setItem('LS_categories', LS_categories);
       LS_categories_obj = JSON.parse(LS_categories);
